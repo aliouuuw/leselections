@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main className="min-h-screen p-3">
       <Header />
-      <Button> Click me </Button>
+      <Button variant="default"> Click me </Button>
     </main>
   );
 }
