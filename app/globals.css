@@ -6,15 +6,15 @@
 @layer base {
   :root {
     --background: 0 0% 95%;
-    --foreground: 0 0% 5%;
+    --foreground: 100 5% 5%;
     --card: 0 0% 95%;
-    --card-foreground: 0 0% 5%;
+    --card-foreground: 100 5% 5%;
     --popover: 0 0% 95%;
-    --popover-foreground: 0 0% 5%;
+    --popover-foreground: 100 5% 5%;
     --primary: 151 95% 25%;
     --primary-foreground: 0 0% 95%;
     --secondary: 0 0% 85%;
-    --secondary-foreground: 0 0% 5%;
+    --secondary-foreground: 100 5% 5%;
     --muted: 0 0% 85%;
     --muted-foreground: 240 5% 15%;
     --accent: 0 0% 85%;
@@ -28,11 +28,11 @@
   }
 
   .dark {
-    --background: 0 0% 5%;  /* black */
+    --background: 100 5% 5%;  /* black */
     --foreground: 0 0% 95%;  /* white */
     --card: 50 5% 10%;   /* black green */
     --card-foreground: 0 0% 95%;
-    --popover: 0 0% 5%;
+    --popover: 100 5% 5%;
     --popover-foreground: 0 0% 95%;
     --primary: 151 95% 25%; /* logo green */
     --primary-foreground: 0 0% 95%; 
@@ -47,5 +47,14 @@
     --border: 0 0% 15%;
     --input: 0 0% 15%;
     --ring: 151 95% 25%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }

@@ -7,19 +7,19 @@ import { MobileMenu } from "../mobileMenu";
 
 export default function Header() {
   return (
-    <header className="flex justify-between items-center h-fit">
-      <div className="flex items-center">
-        <Image src={icon} width={80} alt="Les éléctions logo" />
+    <header className="flex justify-between h-fit items-center">
+      <div className="flex items-center min-[1218px]:hidden">
+        <MobileMenu />
       </div>
-      <div className="hidden md:block">
+        <Image src={icon} width={80} alt="Les éléctions logo" />
+      <div className="hidden min-[1218px]:block">
         <Menu />
       </div>
-      <div className="hidden md:block">
+      <div className="hidden min-[1218px]:block">
         <ModeToggle />
       </div>
-      <div className="flex items-center md:hidden">
+      <div className="flex items-center min-[1218px]:hidden">
         <ModeToggle />
-        <MobileMenu />
       </div>
     </header>
   );
