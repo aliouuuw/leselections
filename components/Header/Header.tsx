@@ -7,7 +7,7 @@ import { MobileMenu } from "../mobileMenu";
 
 export default function Header() {
   return (
-    <header className="flex justify-between h-fit items-center">
+    <header className="p-2 flex justify-between h-fit items-center border-b border-secondary mb-2">
       <div className="flex items-center min-[1218px]:hidden">
         <MobileMenu />
       </div>

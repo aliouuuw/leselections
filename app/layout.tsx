@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Questrial} from 'next/font/google'
+ 
+const questrial = Questrial({
+  subsets: [],
+  weight: "400"
+})
 
 export const metadata: Metadata = {
   title: "Les Éléctions Infos",
@@ -14,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className={questrial.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
