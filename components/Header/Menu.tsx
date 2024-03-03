@@ -25,7 +25,7 @@ export function Menu() {
           <NavigationMenuContent>
             <ul className="grid p-4 md:w-[300px] lg:w-[400px] lg:grid-cols-[.75fr_1fr]">
               <ListItem href="/docs" title="À la une" />
-              <ListItem href="/docs" title="Chronologie" />              
+              <ListItem href="/docs" title="Fil d&apos;Actualité" />              
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>

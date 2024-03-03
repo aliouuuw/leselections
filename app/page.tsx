@@ -1,11 +1,21 @@
+import { EditorPicks } from "@/components/EditorPicks";
+import FilActu from "@/components/FilActu/FilActu";
 import Header from "@/components/Header/Header";
-import { Button } from "@/components/ui/button";
+import Hero from "@/components/Hero/Hero";
+import { Candidats } from "@/components/Candidats";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <>
       <Header />
-      <Button variant="default"> Click me </Button>
-    </main>
+      <main className="px-8 md:px-16">
+        <Hero />
+        <FilActu />
+        <EditorPicks />
+        <Candidats />
+      </main>
+      <Footer />
+    </>
   );
 }

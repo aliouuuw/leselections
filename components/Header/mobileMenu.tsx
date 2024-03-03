@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { AlignJustify } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 export function MobileMenu() {
   return (
@@ -36,7 +36,7 @@ export function MobileMenu() {
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
                 <DropdownMenuItem>À la une</DropdownMenuItem>
-                <DropdownMenuItem>Chronologie</DropdownMenuItem>
+                <DropdownMenuItem>Fil d&apos;Actualité</DropdownMenuItem>
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
           </DropdownMenuSub>
