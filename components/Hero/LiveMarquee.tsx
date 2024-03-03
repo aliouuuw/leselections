@@ -48,7 +48,7 @@ export default function LiveMarquee() {
                   {timeSince(latestUpdate.addedDate)}
                 </time>
               </div>
-              <div className="text-sm font-medium leading-none overflow-hidden whitespace-nowrap marquee flex justify-between">
+              <div className="text-sm w-fit font-medium leading-none overflow-hidden whitespace-nowrap marquee flex justify-between">
                 {updates.map((update, index) => (
                   <div key={index} className="flex ">
                     {/* add more space */}

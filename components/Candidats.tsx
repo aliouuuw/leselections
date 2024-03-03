@@ -65,7 +65,7 @@ export function Candidats() {
   };
   return (
     <section className="space-y-4 my-8">
-      <SectionTitle title="Rencontrez les candidats" />
+      <SectionTitle title="Candidats" />
       <p className="text-muted-foreground">
         Découvrez les candidats aux prochaines élections
       </p>
@@ -86,7 +86,7 @@ export function Candidats() {
                 <SelectItem value="pds">PDS</SelectItem>
                 <SelectItem value="ps">PS</SelectItem>
                 <Separator />
-                <SelectItem value="tout">Tout</SelectItem>
+                <SelectItem value="tout">Voir tout</SelectItem>
               </SelectGroup>
             </SelectContent>
           </Select>

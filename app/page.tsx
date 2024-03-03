@@ -4,6 +4,7 @@ import Header from "@/components/Header/Header";
 import Hero from "@/components/Hero/Hero";
 import { Candidats } from "@/components/Candidats";
 import Footer from "@/components/Footer";
+import { Multimedia } from "@/components/Multimedia";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <FilActu />
         <EditorPicks />
         <Candidats />
+        <Multimedia />
       </main>
       <Footer />
     </>
