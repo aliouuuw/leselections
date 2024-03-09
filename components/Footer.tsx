@@ -1,5 +1,5 @@
 import React from "react";
-import { Twitter, Youtube, Linkedin, Mail } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Mail, Factory, Instagram } from "lucide-react";
 import Link from "next/link";
 
 function Footer() {
@@ -29,22 +29,25 @@ function Footer() {
         </div>
       </div>
       <div className="mt-8 flex justify-center gap-x-10">
-        <a target="_blank" href="https://twitter.com/BBA_analytics">
+        <a target="_blank" href="https://www.facebook.com/profile.php?id=61555627563552">
+          <Facebook size={18} />
+        </a>
+        <a target="_blank" href="https://x.com/LesElections24?t=2Ag3NR-6i4hX-BSjy-gbBQ&s=09">
           <Twitter size={18} />
         </a>
         <a
           target="_blank"
-          href="https://www.youtube.com/channel/UCUPlBMdE7ILLefL2ICW38Kw/"
+          href="https://www.instagram.com/les.elections?igsh=MXJ6ZDh4bW55aXZo"
         >
-          <Youtube size={18} />
+          <Instagram size={18} />
         </a>
         <a
           target="_blank"
-          href="https://www.linkedin.com/company/bankingbook-analytics/"
+          href="https://www.linkedin.com/showcase/les-elections/"
         >
           <Linkedin size={18} />
         </a>
-        <a target="_blank" href="mailto: contact@@bbafintech.com">
+        <a target="_blank" href="mailto: contact@@leselections.info">
           <Mail size={18} />
         </a>
       </div>

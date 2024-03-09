@@ -1,8 +1,15 @@
-import {defineCliConfig} from 'sanity/cli'
+import { createClient } from "next-sanity";
+import imageUrlBuilder from "@sanity/image-url";
 
-export default defineCliConfig({
-  api: {
-    projectId: 'it0t75ow',
-    dataset: 'production'
-  }
-})
+export const sanityClient = createClient({
+  apiVersion: "2023-05-03",
+  dataset: "production",
+  projectId: "it0t75ow",
+  useCdn: false,
+});
+
+const builder = imageUrlBuilder(sanityClient);
+
+export function urlFor(source: any) {
+  return builder.image(source);
+}

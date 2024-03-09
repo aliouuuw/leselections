@@ -13,6 +13,7 @@ import {
 import { Separator } from "./ui/separator";
 import { useState } from "react";
 import SectionTitle from "./SectionTitle";
+import { ScrollArea } from "./ui/scroll-area";
 
 // Define an interface for media objects
 interface Media {
@@ -75,22 +76,25 @@ export function Multimedia() {
           </Select>
         </div>
       </div>
-      <div className="grid items-start gap-6 mt-6 md:grid-cols-2 lg:grid-cols-3">
-        {filteredMedia.map((item, index) => (
-          <div key={index} className="flex flex-col space-y-2">
-            <Link className="font-medium" href={item.link}>
-              <Image
-                alt="Thumbnail"
-                className="aspect-video object-cover group-hover:opacity-75 transition-opacity rounded-lg overflow-hidden"
-                height={225}
-                src="/placeholder.svg"
-                width={400}
-              />
-              <p className="uppercase text-primary">{item.type}:</p> {item.title}
-            </Link>
-          </div>
-        ))}
+        <ScrollArea className="h-[80vh] p-4 rounded-md border">
+      <div className="grid grid-cols-1 items-start gap-6 mt-6 md:grid-cols-2 lg:grid-cols-3">
+          {filteredMedia.map((item, index) => (
+            <div key={index} className="col-span-1 flex flex-col space-y-2">
+              <Link className="font-medium" href={item.link}>
+                <Image
+                  alt="Thumbnail"
+                  className="aspect-video object-cover group-hover:opacity-75 transition-opacity rounded-lg overflow-hidden"
+                  height={225}
+                  src="/placeholder.svg"
+                  width={400}
+                />
+                <p className="uppercase text-primary">{item.type}:</p>{" "}
+                {item.title}
+              </Link>
+            </div>
+          ))}
       </div>
+        </ScrollArea>
     </section>
   );
 }
