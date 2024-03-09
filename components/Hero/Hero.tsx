@@ -1,7 +1,7 @@
 import { HeroCarousel } from "./HeroCarousel";
 import LiveMarquee from "./LiveMarquee";
 
-export default function Hero() {
+export default async function Hero() {
   return (
     <section className="max-h-screen flex flex-col items-center gap-4 py-4">
       <h1>

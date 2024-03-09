@@ -1,2 +1,3 @@
 import laUne from "./laUne"
-export const schemaTypes = [laUne]
+import live from "./live"
+export const schemaTypes = [laUne,live]

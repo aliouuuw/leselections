@@ -1,51 +1,38 @@
-"use client"
-
-import { useState, useEffect } from "react";
+import { sanityClient } from "@/sanity.cli";
 
 type UpdateProps = {
-  content: string;
-  addedDate: string;
+  titre: string;
+  datetime: string;
 };
 
-export default function LiveMarquee() {
-    const updates: UpdateProps[] = [
-        {
-          content: "Stock market hits all-time high",
-          addedDate: "2024-02-03T09:19:00Z",
-        },
-        {
-          content: "🚀 SpaceX launches new mission to the International Space Station",
-          addedDate: "2023-03-03T09:17:00Z",
-        },
-        {
-          content: "Scientists discover new species in the Amazon rain forest",
-          addedDate: "2023-03-03T09:18:00Z",
-        },
-      ]
-  const [latestUpdate, setLatestUpdate] = useState(updates[0]);
-
-  useEffect(() => {
-    if (updates.length > 0) {
-        const latest = updates.reduce((prev, current) =>
-          new Date(prev.addedDate) > new Date(current.addedDate) ? prev : current
-        );
-        setLatestUpdate(latest);
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+const getLives = async () => {
+  try {
+    const lives = await sanityClient.fetch(`
+      *[_type == 'live'] | order(datetime desc) {
+        titre,
+        datetime,
+      }
+    `, {},  {next : { revalidate: 0 }});
+    return lives;
+  } catch (error) {
+    console.error("Error fetching la_une:", error);
+  }
+};
+export default async function LiveMarquee () {
+  const updates: UpdateProps[] = await getLives();
 
   return (
     <div className="w-full rounded-lg bg-muted/40">
       <div className="overflow-hidden">
         <div className="container px-4">
           <div className="flex items-center space-x-4 py-4">
-            <div className="w-full space-y-2">
+            <div className="w-full  space-y-2">
               <div className="flex items-center space-x-2 text-xs">
                 <SignalIcon className="animate-pulse h-4 w-4 rounded-full bg-red-500" />
                 <span className="font-bold">LIVE</span>
                 <span className="opacity-70">|</span>
-                <time className="opacity-70" dateTime={latestUpdate.addedDate}>
-                  {timeSince(latestUpdate.addedDate)}
+                <time className="opacity-70" dateTime={updates[0].datetime}>
+                  {timeSince(updates[0].datetime)}
                 </time>
               </div>
               <div className="text-sm w-fit font-medium leading-none overflow-hidden whitespace-nowrap marquee flex justify-between">
@@ -53,7 +40,8 @@ export default function LiveMarquee() {
                   <div key={index} className="flex ">
                     {/* add more space */}
                     <p>{" - "}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    <p>{update.content}</p>
+                    <p>{update.titre}</p>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
                   </div>
                 ))}
               </div>
