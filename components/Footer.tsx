@@ -15,18 +15,6 @@ function Footer() {
         </a>
         <p>Fax: +1-905-499-3618</p>
         <br />
-        <div className="flex flex-col">
-          <Link href="/privacy" legacyBehavior passHref>
-            <a target="_blank" className="text-primary hover:underline">
-            Conditions d&apos;utilisation
-            </a>
-          </Link>
-          <Link href="/terms" legacyBehavior passHref>
-            <a target="_blank" className="text-primary hover:underline">
-            Politique de confidentialité
-            </a>
-          </Link>
-        </div>
       </div>
       <div className="mt-8 flex justify-center gap-x-10">
         <a target="_blank" href="https://www.facebook.com/profile.php?id=61555627563552">
