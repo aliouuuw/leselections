@@ -1,3 +1,5 @@
-import laUne from "./laUne"
 import live from "./live"
-export const schemaTypes = [laUne,live]
+import article from "./article"
+import candidat from "./candidat"
+import multimedia from "./multimedia"
+export const schemaTypes = [article, live, candidat, multimedia]

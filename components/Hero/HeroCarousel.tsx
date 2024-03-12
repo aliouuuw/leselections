@@ -7,17 +7,24 @@ import {
 } from "@/components/ui/carousel";
 import Image from "next/image";
 import { Button } from "../ui/button";
-import { sanityClient } from "@/sanity.cli";
+import { sanityClient } from "@/sanity-client";
+import Link from "next/link";
 
 const getLaUne = async () => {
   try {
-    const laune = await sanityClient.fetch(`
-      *[_type == 'la_une'] | order(datetime desc) {
+    const laune = await sanityClient.fetch(
+      `
+      *[_type == 'article' && type == "la_une"] | order(datetime desc) {
         titre,
+        slug,
         description,
+        datetime,
         "imageUrl": image.asset->url
-      }
-    `, {},  {next : { revalidate: 0 }});
+      }[0...2]
+    `,
+      {},
+      { next: { revalidate: 0 } }
+    );
     return laune;
   } catch (error) {
     console.error("Error fetching la_une:", error);
@@ -26,12 +33,13 @@ const getLaUne = async () => {
 
 type LaUneType = {
   titre: string,
+  slug: { current: string },
   description: string,
   imageUrl: string,
-}
+};
 
 export async function HeroCarousel() {
-  const laune : LaUneType[] = await getLaUne();
+  const laune: LaUneType[] = await getLaUne();
   return (
     <Carousel className="w-full">
       <CarouselContent className="h-[500px] object-center">
@@ -50,9 +58,11 @@ export async function HeroCarousel() {
               <div className="z-3 absolute bottom-0 left-0 h-fit md:w-1/2 rounded-tr-lg rounded-bl-lg bg-background/80 backdrop-blur-md p-4 flex flex-col gap-2">
                 <h2>{item.titre}</h2>
                 <p>{item.description}</p>
-                <Button variant={"default"} className="w-28 self-end">
-                  Lire plus
-                </Button>
+                <Link href={`/actualites/${item.slug.current}`} target="_blank">
+                  <Button variant={"default"} className="w-28 self-end">
+                    Lire plus
+                  </Button>
+                </Link>
               </div>
             </div>
           </CarouselItem>

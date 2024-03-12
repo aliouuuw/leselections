@@ -1,4 +1,4 @@
-import { sanityClient } from "@/sanity.cli";
+import { sanityClient } from "@/sanity-client";
 
 type UpdateProps = {
   titre: string;
@@ -15,7 +15,7 @@ const getLives = async () => {
     `, {},  {next : { revalidate: 0 }});
     return lives;
   } catch (error) {
-    console.error("Error fetching la_une:", error);
+    console.error("Error fetching live:", error);
   }
 };
 export default async function LiveMarquee () {

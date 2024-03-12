@@ -5,6 +5,7 @@ import Image from "next/image";
 import icon from "../../app/icon.png";
 import { Menu } from "./Menu";
 import { MobileMenu } from "./mobileMenu";
+import Link from "next/link";
 
 export default function Header() {
   const [scrolling, setScrolling] = useState(false);
@@ -31,7 +32,9 @@ export default function Header() {
       <div className="flex items-center min-[1218px]:hidden">
         <MobileMenu />
       </div>
+      <Link href="/">
         <Image src={icon} width={80} alt="Les éléctions logo" />
+      </Link>
       <div className="hidden min-[1218px]:block">
         <Menu />
       </div>

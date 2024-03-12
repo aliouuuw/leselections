@@ -1,50 +1,48 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "./ui/select";
-import { Separator } from "./ui/separator";
-import { useState } from "react";
 import SectionTitle from "./SectionTitle";
 import { ScrollArea } from "./ui/scroll-area";
+import { sanityClient } from "@/sanity-client";
 
 // Define an interface for media objects
-interface Media {
+interface MediaProps {
+  titre: string;
+  slug: { current: string };
   type: string;
-  title: string;
-  link: string;
+  imageUrl: string;
 }
 
-export function Multimedia() {
-  const media = [
-    { type: "video", title: "The Secret Life of Gnomes", link: "#" },
-    { type: "video", title: "The Secret Life of Gnomes", link: "#" },
-    { type: "podcast", title: "The Sound of Silence", link: "#" },
-    { type: "podcast", title: "The Sound of Silence", link: "#" },
-    { type: "podcast", title: "The Sound of Silence", link: "#" },
-    { type: "interview", title: "In Conversation with the Stars", link: "#" },
-    { type: "interview", title: "In Conversation with the Stars", link: "#" },
-    { type: "photo", title: "In Conversation with the Planets", link: "#" },
-    { type: "photo", title: "In Conversation with the Planets", link: "#" },
-  ];
-  const [filteredMedia, setFilteredMedia] = useState<Media[]>(media);
+const getMedia = async () => {
+  try {
+    const media = await sanityClient.fetch(
+      `
+      *[_type == 'multimedia'] | order(datetime desc) {
+        titre,
+        slug,
+        "imageUrl": vignette.asset -> url,
+        type,
+      }
+    `,
+      {},
+      { next: { revalidate: 0 } }
+    );
+    return media;
+  } catch (error) {
+    console.error("Error fetching editorial:", error);
+  }
+};
 
-  const handleTypeChange = (selectedType: string) => {
-    const filtered =
-      selectedType === "tout"
-        ? media
-        : media.filter(
-            (m) => m.type.toLowerCase() === selectedType.toLowerCase()
-          );
-    setFilteredMedia(filtered);
-  };
+export async function Multimedia() {
+  // const handleTypeChange = (selectedType: string) => {
+  //   const filtered =
+  //     selectedType === "tout"
+  //       ? media
+  //       : media.filter(
+  //           (m) => m.type.toLowerCase() === selectedType.toLowerCase()
+  //         );
+  //   setFilteredMedia(filtered);
+  // };
+  const media: MediaProps[] = await getMedia();
 
   return (
     <section className="space-y-4 my-8">
@@ -53,7 +51,7 @@ export function Multimedia() {
         Explorez une variété de contenus, des vidéos aux podcasts
       </p>
       <div className="grid items-start gap-6 md:grid-cols-2">
-        <div className="space-y-4">
+        {/* <div className="space-y-4">
           <Select
             onValueChange={(value) => handleTypeChange(value)}
             defaultValue="tout"
@@ -74,22 +72,22 @@ export function Multimedia() {
               </SelectGroup>
             </SelectContent>
           </Select>
-        </div>
+        </div> */}
       </div>
         <ScrollArea className="h-[80vh] p-4 rounded-md border">
       <div className="grid grid-cols-1 items-start gap-6 mt-6 md:grid-cols-2 lg:grid-cols-3">
-          {filteredMedia.map((item, index) => (
+          {media.map((item, index) => (
             <div key={index} className="col-span-1 flex flex-col space-y-2">
-              <Link className="font-medium" href={item.link}>
+              <Link className="font-medium" href="/">
                 <Image
                   alt="Thumbnail"
                   className="aspect-video object-cover group-hover:opacity-75 transition-opacity rounded-lg overflow-hidden"
                   height={225}
-                  src="/placeholder.svg"
+                  src={item.imageUrl}
                   width={400}
                 />
-                <p className="uppercase text-primary">{item.type}:</p>{" "}
-                {item.title}
+                <p className="uppercase text-primary my-2">{item.type}</p>{" "}
+                {item.titre}
               </Link>
             </div>
           ))}

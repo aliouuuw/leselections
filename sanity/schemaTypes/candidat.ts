@@ -1,12 +1,12 @@
 export default {
-    name: "la_une",
+    name: "candidat",
     type: "document",
-    title: "La Une",
+    title: "Candidat",
     fields: [
       {
-        name: "titre",
+        name: "nom",
         type: "string",
-        title: "Titre",
+        title: "Nom",
         validation: (Rule: { required: () => any }) => Rule.required(),
       },
       {
@@ -14,30 +14,34 @@ export default {
         type: "slug",
         title: "Slug",
         options: {
-          source: "titre",
+          source: "nom",
           maxLength: 200, // adjust as needed
         },
         validation: (Rule: { required: () => any }) => Rule.required(),
       },
       {
-        name: "image",
+        name: "photo",
         type: "image",
-        title: "Image",
-        description: "Image de la une",
+        title: "Photo de Profil",
+      },
+      {
+        name:"parti",
+        type: "string",
+        title: "Parti",
         validation: (Rule: { required: () => any }) => Rule.required(),
       },
       {
-        name:"description",
+        name:"apercu",
         type: "string",
-        title: "Description",
-        description: "Description ou aperçu de la une"
+        title: "apercu",
+        description: "Aperçu du profil"
       },
       {
-        name: "contenu",
+        name: "bio",
         type: "array",
-        title: "Contenu et Média",
+        title: "Bio",
         description:
-          "Contenu principal de l'article (peut inclure du texte, images, videos, etc.)",
+          "Biographie du candidat (peut inclure du texte, images, videos, etc.)",
         of: [
           // Define the block types allowed in the array
           {
