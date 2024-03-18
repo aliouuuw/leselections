@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Questrial} from 'next/font/google'
+import { Questrial } from 'next/font/google'
  
 const questrial = Questrial({
   subsets: [],

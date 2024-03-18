@@ -15,6 +15,7 @@ import {
 
 import { AlignJustify } from "lucide-react";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export function MobileMenu() {
   return (
@@ -35,8 +36,12 @@ export function MobileMenu() {
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
-                <DropdownMenuItem>À la une</DropdownMenuItem>
-                <DropdownMenuItem>Fil d&apos;Actualité</DropdownMenuItem>
+                <Link href={"/#la_une"}>
+                  <DropdownMenuItem>À la une</DropdownMenuItem>
+                </Link>
+                <Link href={"/filactu"}>
+                  <DropdownMenuItem>Fil d&apos;Actualité</DropdownMenuItem>
+                </Link>
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
           </DropdownMenuSub>
@@ -45,9 +50,15 @@ export function MobileMenu() {
             <DropdownMenuSubTrigger>Candidats</DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
-                <DropdownMenuItem>Profil des Candidats</DropdownMenuItem>
-                <DropdownMenuItem>Analyse des Politques</DropdownMenuItem>
-                <DropdownMenuItem>Débats et Opinions</DropdownMenuItem>
+                <Link href={"/candidats"}>
+                  <DropdownMenuItem>Profil des Candidats</DropdownMenuItem>
+                </Link>
+                <Link href={"/"}>
+                  <DropdownMenuItem>Analyse des Politques</DropdownMenuItem>
+                </Link>
+                <Link href={"/"}>
+                  <DropdownMenuItem>Débats et Opinions</DropdownMenuItem>
+                </Link>
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
           </DropdownMenuSub>
@@ -55,9 +66,15 @@ export function MobileMenu() {
             <DropdownMenuSubTrigger>{`Guide de l'Électeur`}</DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
-                <DropdownMenuItem>Comment et Où voter?</DropdownMenuItem>
-                <DropdownMenuItem>Documents Nécessaires</DropdownMenuItem>
-                <DropdownMenuItem>Histoire des Élections</DropdownMenuItem>
+                <Link href={"/"}>
+                  <DropdownMenuItem>Comment et Où voter?</DropdownMenuItem>
+                </Link>
+                <Link href={"/"}>
+                  <DropdownMenuItem>Documents Nécessaires</DropdownMenuItem>
+                </Link>
+                <Link href={"/"}>
+                  <DropdownMenuItem>Histoire des Élections</DropdownMenuItem>
+                </Link>
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
           </DropdownMenuSub>
@@ -67,23 +84,39 @@ export function MobileMenu() {
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
-                <DropdownMenuItem>Éditorial de la Rédaction</DropdownMenuItem>
-                <DropdownMenuItem>Lettres des Électeurs</DropdownMenuItem>
+                <Link href={"/editorials"}>
+                  <DropdownMenuItem>Éditorial de la Rédaction</DropdownMenuItem>
+                </Link>
+                <Link href={"/"}>
+                  <DropdownMenuItem>Lettres des Électeurs</DropdownMenuItem>
+                </Link>
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
           </DropdownMenuSub>
           <DropdownMenuSub>
-            <DropdownMenuSubTrigger>Multimédia</DropdownMenuSubTrigger>
+            <Link href={"/"}>
+              <DropdownMenuSubTrigger>Multimédia</DropdownMenuSubTrigger>
+            </Link>
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
-                <DropdownMenuItem>Reportages</DropdownMenuItem>
-                <DropdownMenuItem>Podcasts</DropdownMenuItem>
-                <DropdownMenuItem>Vidéos et Images</DropdownMenuItem>
+                <Link href={"/"}>
+                  <DropdownMenuItem>Reportages</DropdownMenuItem>
+                </Link>
+                <Link href={"/"}>
+                  <DropdownMenuItem>Podcasts</DropdownMenuItem>
+                </Link>
+                <Link href={"/"}>
+                  <DropdownMenuItem>Vidéos et Images</DropdownMenuItem>
+                </Link>
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
           </DropdownMenuSub>
-          <DropdownMenuItem>International</DropdownMenuItem>
-          <DropdownMenuItem>Fact-checking</DropdownMenuItem>
+          <Link href={"/"}>
+            <DropdownMenuItem>International</DropdownMenuItem>
+          </Link>
+          <Link href={"/"}>
+            <DropdownMenuItem>Fact-checking</DropdownMenuItem>
+          </Link>
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>

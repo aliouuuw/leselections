@@ -25,7 +25,7 @@ export function Menu() {
           <NavigationMenuContent>
             <ul className="grid p-4 md:w-[300px] lg:w-[400px] lg:grid-cols-[.75fr_1fr]">
               <ListItem href="/#la_une" title="À la une" />
-              <ListItem href="/#filactu" title="Fil d&apos;Actualité" />              
+              <ListItem href="/filactu" title="Fil d&apos;Actualité" />              
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -33,7 +33,7 @@ export function Menu() {
           <NavigationMenuTrigger>Candidats</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid p-4 md:w-[300px] lg:w-[400px] lg:grid-cols-[.75fr_1fr]">
-              <ListItem href="/#candidats" title="Profils des Candidats"/>
+              <ListItem href="/candidats" title="Profils des Candidats"/>
               <ListItem href="/" title="Analyse des Politiques"/>
               <ListItem href="/" title="Débats et Opinions"/>
             </ul>
@@ -53,7 +53,7 @@ export function Menu() {
           <NavigationMenuTrigger>Perspectives Éditoriales</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid p-4 md:w-[300px] lg:w-[400px] lg:grid-cols-[.75fr_1fr]">
-              <ListItem href="/" title="Éditorial de la Rédaction"/>
+              <ListItem href="/editorials" title="Éditorial de la Rédaction"/>
               <ListItem href="/" title="Lettres des Lecteurs"/>
             </ul>
           </NavigationMenuContent>

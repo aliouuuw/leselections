@@ -20,7 +20,7 @@ const getLaUne = async () => {
         description,
         datetime,
         "imageUrl": image.asset->url
-      }[0...2]
+      }[0...3]
     `,
       {},
       { next: { revalidate: 0 } }
@@ -58,10 +58,9 @@ export async function HeroCarousel() {
               <div className="z-3 absolute bottom-0 left-0 h-fit md:w-1/2 rounded-tr-lg rounded-bl-lg bg-background/80 backdrop-blur-md p-4 flex flex-col gap-2">
                 <h2>{item.titre}</h2>
                 <p>{item.description}</p>
-                <Link href={`/actualites/${item.slug.current}`} target="_blank">
+                <Link href={`/filactu/actualites/${item.slug.current}`} target="_blank">
                   <Button variant={"default"} className="w-28 self-end">
-                    Lire plus
-                  </Button>
+                  Lire l&apos;article                  </Button>
                 </Link>
               </div>
             </div>

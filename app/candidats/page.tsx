@@ -7,14 +7,14 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
-import SectionTitle from "./SectionTitle";
-import { Separator } from "./ui/separator";
 import { sanityClient } from "@/sanity-client";
-import VoirPlus from "./VoirPlus";
+import SectionTitle from "@/components/SectionTitle";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header/Header";
 
-type CandidatsProps= {
+type CandidatsProps = {
   nom: string;
-  slug: {current: string};
+  slug: { current: string };
   parti: string;
   age: number;
   apercu: string;
@@ -32,7 +32,7 @@ const getCandidates = async () => {
         age,
         apercu,
         "imageUrl": photo.asset->url
-      }[0...5]
+      }
     `,
       {},
       { next: { revalidate: 0 } }
@@ -42,28 +42,41 @@ const getCandidates = async () => {
     console.error("Error fetching la_une:", error);
   }
 };
-export async function Candidats() {
-
+export default async function Candidats() {
   const candidatesList: CandidatsProps[] = await getCandidates();
 
   return (
-    <section className="space-y-4 my-8">
-      <SectionTitle title="Candidats" />
-      <p className="text-muted-foreground">
-        Découvrez les candidats aux prochaines élections
-      </p>
-      <div className="grid items-center gap-4 my-4">
-        <div className="grid gap-6 md:gap-12 lg:grid-cols-2 xl:grid-cols-3">
-          {candidatesList.map((candidate, index) => (
-            <CandidateCard key={index} {...candidate} />
-          ))}
+    <>
+      <Header />
+      <main className="px-8 pb-8 md:px-36">
+        <div className="text-center py-4">
+          <h1>
+            PROFILS DES <span className="text-primary italic">CANDIDATS</span>
+          </h1>
         </div>
-      </div>
-      <VoirPlus url="/candidats"/>
-    </section>
+        <p className="text-muted-foreground">
+          Découvrez les candidats aux prochaines élections
+        </p>
+        <div className="grid items-center gap-4 my-4">
+          <div className="grid gap-6 md:gap-12 lg:grid-cols-2 xl:grid-cols-3">
+            {candidatesList.map((candidate, index) => (
+              <CandidateCard key={index} {...candidate} />
+            ))}
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </>
   );
 }
-function CandidateCard({ nom, age, parti, apercu, imageUrl, slug }: CandidatsProps) {
+function CandidateCard({
+  nom,
+  age,
+  parti,
+  apercu,
+  imageUrl,
+  slug,
+}: CandidatsProps) {
   return (
     <Card>
       <div className="flex items-center space-x-4 p-4">
@@ -81,7 +94,9 @@ function CandidateCard({ nom, age, parti, apercu, imageUrl, slug }: CandidatsPro
         <CardHeader className="flex-1 min-w-0">
           <h3 className="text-lg font-semibold">{nom}</h3>
           <div className="flex gap-2">
-          <p className="text-sm text-muted-foreground">{age} ans &nbsp;{' | '} &nbsp; {parti}</p>
+            <p className="text-sm text-muted-foreground">
+              {age} ans &nbsp;{" | "} &nbsp; {parti}
+            </p>
           </div>
         </CardHeader>
       </div>
@@ -97,4 +112,3 @@ function CandidateCard({ nom, age, parti, apercu, imageUrl, slug }: CandidatsPro
     </Card>
   );
 }
-
