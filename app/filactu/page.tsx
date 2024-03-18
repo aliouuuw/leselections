@@ -50,7 +50,7 @@ export default async function page() {
       <main className="px-8 pb-8 md:px-36">
         <div className="text-center py-4">
           <h1>
-            FIL D&apos;<span className="text-primary italic">ACTUALITÉ</span>
+            FIL D&apos;<span className="text-primary">ACTUALITÉ</span>
           </h1>
         </div>
         <div className="grid lg:grid-cols-2 gap-4">

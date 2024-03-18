@@ -50,11 +50,11 @@ export function Menu() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Perspectives Éditoriales</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Perspectives</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid p-4 md:w-[300px] lg:w-[400px] lg:grid-cols-[.75fr_1fr]">
               <ListItem href="/editorials" title="Éditorial de la Rédaction"/>
-              <ListItem href="/" title="Lettres des Lecteurs"/>
+              <ListItem href="/" title="Lettres des Électeurs"/>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>

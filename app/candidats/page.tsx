@@ -51,7 +51,7 @@ export default async function Candidats() {
       <main className="px-8 pb-8 md:px-36">
         <div className="text-center py-4">
           <h1>
-            PROFILS DES <span className="text-primary italic">CANDIDATS</span>
+            PROFILS DES <span className="text-primary">CANDIDATS</span>
           </h1>
         </div>
         <p className="text-muted-foreground">

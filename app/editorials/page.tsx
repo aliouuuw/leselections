@@ -52,7 +52,7 @@ export default async function page() {
         <div className="text-center py-4">
           <h1>
             ÉDITORIAL DE LA{" "}
-            <span className="text-primary italic">RÉDACTION</span>
+            <span className="text-primary">RÉDACTION</span>
           </h1>
         </div>
         <div>
