@@ -68,20 +68,20 @@ export async function EditorPicks() {
                   )}
                 </div>
                 <div className="col-span-4 md:col-span-3">
-                  <h4 className="font-black text-2xl">{item.titre}</h4>
+                  <Link
+                    href={`/editorials/editorial/${item.slug.current}`}
+                    target="_blank"
+                  >
+                    <h4 className="font-black text-2xl hover:underline hover:text-primary">
+                      {item.titre}
+                    </h4>
+                  </Link>
                   <p className="text-muted-foreground my-2">
                     Publié le{" "}
                     {moment(item.datetime).format("dddd Do MMMM, [à] h:mm a")}
                   </p>
                   <div className="flex flex-col gap-2">
                     <p>{item.description}</p>
-                    <Link
-                      href={`/editorials/editorial/${item.slug.current}`}
-                      target="_blank"
-                      className="self-end"
-                    >
-                      <Button variant={"outline"}>Lire l&apos;article</Button>
-                    </Link>
                   </div>
                 </div>
               </div>

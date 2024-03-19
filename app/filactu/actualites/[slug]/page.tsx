@@ -89,7 +89,7 @@ const page = async ({ params }: Params) => {
             </div>
           </header>
           <Separator className="my-4" />
-          <div className="px-4 md:px-6 py-6 space-y-8 prose max-w-none">
+          <div className="px-4 md:px-6 py-6 space-y-8 prose max-w-none [&_ul]:list-disc [&_ol]:list-decimal">
             <BlockContent
               projectId={"yrzayet7"}
               dataset={"production"}
@@ -112,11 +112,16 @@ const serializers = {
       switch (props.node.style) {
         case "h1":
           return <h1 className="my-4">{props.children}</h1>;
+        case "h2":
+          return <h2 className="my-4">{props.children}</h2>;
+        case "h3":
+          return <h3 className="my-4">{props.children}</h3>;
         case "h4":
           return <h4 className="my-4">{props.children}</h4>;
         case "span":
           return <span className="my-4">{props.children}</span>;
         case "ul":
+          return <ul className="list-disc">{props.children}</ul>;
         default:
           return <p className="my-4">{props.children}</p>;
       }

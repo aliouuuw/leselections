@@ -32,7 +32,7 @@ const getCandidates = async () => {
         age,
         apercu,
         "imageUrl": photo.asset->url
-      }[0...5]
+      }[0...3]
     `,
       {},
       { next: { revalidate: 0 } }

@@ -55,7 +55,7 @@ const page = async ({ params }: Params) => {
             <span> Publié le {moment(article.datetime).format("dddd Do MMMM, [à] h:mm a")}</span>
           </div>
         </header>
-        <article className="text-justify text-pretty mb-14">
+        <article className="text-justify text-pretty mb-14 [&_ul]:list-disc [&_ol]:list-decimal">
           <div>
             {article.contenu && <BlockContent projectId={"yrzayet7"} dataset={"production"} blocks={article.contenu} serializers={serializers} />}
           </div>
@@ -72,14 +72,20 @@ const serializers = {
     types: {
         block: (props: { node: { style: any; }; children: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.PromiseLikeOfReactNode | null | undefined; }) => {
           switch (props.node.style) {
-            case 'h1':
-              return <h1 className="my-4">{props.children}</h1>
-            case 'h4':
-              return <h4 className="my-4">{props.children}</h4>
-            case 'span':
-              return <span className="my-4">{props.children}</span>
+            case "h1":
+              return <h1 className="my-4">{props.children}</h1>;
+            case "h2":
+              return <h2 className="my-4">{props.children}</h2>;
+            case "h3":
+              return <h3 className="my-4">{props.children}</h3>;
+            case "h4":
+              return <h4 className="my-4">{props.children}</h4>;
+            case "span":
+              return <span className="my-4">{props.children}</span>;
+            case "ul":
+              return <ul className="list-disc">{props.children}</ul>;
             default:
-              return <p className="my-4">{props.children}</p>
+              return <p className="my-4">{props.children}</p>;
           }
         }
       },
