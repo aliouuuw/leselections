@@ -51,45 +51,43 @@ export async function EditorPicks() {
         <div>
           {picks.map((item, index) => (
             <div key={index} className="flex flex-col gap-2">
-            <div className="grid grid-cols-4 gap-x-4">
-              <div className="col-span-4 md:col-span-1 w-full">
-                <Image
-                  alt="Thumbnail"
-                  className="overflow-hidden rounded-lg object-cover w-full h-full"
-                  height={300}
-                  width={600}
-                  src={item.imageUrl}
-                  style={{
-                    aspectRatio: "2/1",
-                    objectFit: "cover",
-                  }}
-                />
-              </div>
-              <div className="col-span-4 md:col-span-3">
-                <h4 className="font-black text-2xl">
-                  {item.titre}
-                </h4>
-                <p className="text-muted-foreground my-2">
-                  Publié le{" "}
-                  {moment(item.datetime).format("dddd Do MMMM, [à] h:mm a")}
-                </p>
-                <div className="flex flex-col gap-2">
-
-                <p>{item.description}</p>
-                  <Link
-                    href={`/editorials/editorial/${item.slug.current}`}
-                    target="_blank"
-                    className="self-end"
-                  >
-                  <Button variant={"outline"}>Lire l&apos;article</Button>
-                </Link>
+              <div className="grid grid-cols-4 gap-x-4">
+                <div className="col-span-4 md:col-span-1 w-full">
+                  {item.imageUrl && (
+                    <Image
+                      alt="Thumbnail"
+                      className="overflow-hidden rounded-lg object-cover w-full h-full"
+                      height={300}
+                      width={600}
+                      src={item.imageUrl}
+                      style={{
+                        aspectRatio: "2/1",
+                        objectFit: "cover",
+                      }}
+                    />
+                  )}
+                </div>
+                <div className="col-span-4 md:col-span-3">
+                  <h4 className="font-black text-2xl">{item.titre}</h4>
+                  <p className="text-muted-foreground my-2">
+                    Publié le{" "}
+                    {moment(item.datetime).format("dddd Do MMMM, [à] h:mm a")}
+                  </p>
+                  <div className="flex flex-col gap-2">
+                    <p>{item.description}</p>
+                    <Link
+                      href={`/editorials/editorial/${item.slug.current}`}
+                      target="_blank"
+                      className="self-end"
+                    >
+                      <Button variant={"outline"}>Lire l&apos;article</Button>
+                    </Link>
+                  </div>
                 </div>
               </div>
+              {index !== picks.length - 1 && <Separator className="my-2" />}
             </div>
-            {index !== picks.length - 1 && <Separator className="my-2" />}
-          </div>
-        ))}
-  
+          ))}
         </div>
         <VoirPlus url="/editorials" />
       </div>

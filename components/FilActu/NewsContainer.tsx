@@ -41,35 +41,40 @@ export default async function NewsContainer() {
 
   return (
     <>
-    <div className="grid gap-4 mx-auto lg:max-w-screen lg:grid-cols-2 ">
-      {componentItems.map((item, index) => (
-        <div key={index} className="space-y-2 mb-4">
-          <div className="relative">
-            <Image
-              alt={item.imageUrl}
-              className="rounded-lg object-cover w-full"
-              height={300}
-              width={600}
-              src={item.imageUrl}
-              style={{
-                aspectRatio: "2/1",
-                objectFit: "cover",
-              }}
-            />
+      <div className="grid gap-4 mx-auto lg:max-w-screen lg:grid-cols-2 ">
+        {componentItems.map((item, index) => (
+          <div key={index} className="space-y-2 mb-4">
+            <div className="relative">
+              {item.imageUrl && (
+                <Image
+                  alt={item.imageUrl}
+                  className="rounded-lg object-cover w-full"
+                  height={300}
+                  width={600}
+                  src={item.imageUrl}
+                  style={{
+                    aspectRatio: "2/1",
+                    objectFit: "cover",
+                  }}
+                />
+              )}
+            </div>
+            <Link
+              href={`/filactu/actualites/${item.slug.current}`}
+              target="_blank"
+            >
+              <h2 className="text-2xl font-bold my-2 hover:underline hover:text-primary">
+                {item.titre}
+              </h2>
+            </Link>
+            <p className="text-muted-foreground my-2">
+              Publié le{" "}
+              {moment(item.datetime).format("dddd Do MMMM, [à] h:mm a")}
+            </p>
+            <p className="text-pretty text-justify ">{item.description}</p>
           </div>
-          <Link href={`/filactu/actualites/${item.slug.current}`} target="_blank">
-            <h2 className="text-2xl font-bold my-2 hover:underline hover:text-primary">
-              {item.titre}
-            </h2>
-          </Link>
-          <p className="text-muted-foreground my-2">
-            Publié le {moment(item.datetime).format("dddd Do MMMM, [à] h:mm a")}
-          </p>
-          <p className="text-pretty text-justify ">{item.description}</p>
-        </div>
-      ))}
-
-    </div>
+        ))}
+      </div>
       <VoirPlus url="/filactu" />
     </>
   );

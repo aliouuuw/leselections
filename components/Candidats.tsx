@@ -12,9 +12,9 @@ import { Separator } from "./ui/separator";
 import { sanityClient } from "@/sanity-client";
 import VoirPlus from "./VoirPlus";
 
-type CandidatsProps= {
+type CandidatsProps = {
   nom: string;
-  slug: {current: string};
+  slug: { current: string };
   parti: string;
   age: number;
   apercu: string;
@@ -43,7 +43,6 @@ const getCandidates = async () => {
   }
 };
 export async function Candidats() {
-
   const candidatesList: CandidatsProps[] = await getCandidates();
 
   return (
@@ -59,29 +58,40 @@ export async function Candidats() {
           ))}
         </div>
       </div>
-      <VoirPlus url="/candidats"/>
+      <VoirPlus url="/candidats" />
     </section>
   );
 }
-function CandidateCard({ nom, age, parti, apercu, imageUrl, slug }: CandidatsProps) {
+function CandidateCard({
+  nom,
+  age,
+  parti,
+  apercu,
+  imageUrl,
+  slug,
+}: CandidatsProps) {
   return (
     <Card>
       <div className="flex items-center space-x-4 p-4">
-        <Image
-          alt="Image"
-          className="rounded-full"
-          height="80"
-          src={imageUrl}
-          style={{
-            aspectRatio: "80/80",
-            objectFit: "cover",
-          }}
-          width="80"
-        />
+        {imageUrl && (
+          <Image
+            alt="Image"
+            className="rounded-full"
+            height="80"
+            src={imageUrl}
+            style={{
+              aspectRatio: "80/80",
+              objectFit: "cover",
+            }}
+            width="80"
+          />
+        )}
         <CardHeader className="flex-1 min-w-0">
           <h3 className="text-lg font-semibold">{nom}</h3>
           <div className="flex gap-2">
-          <p className="text-sm text-muted-foreground">{age} ans &nbsp;{' | '} &nbsp; {parti}</p>
+            <p className="text-sm text-muted-foreground">
+              {age} ans &nbsp;{" | "} &nbsp; {parti}
+            </p>
           </div>
         </CardHeader>
       </div>
@@ -97,4 +107,3 @@ function CandidateCard({ nom, age, parti, apercu, imageUrl, slug }: CandidatsPro
     </Card>
   );
 }
-

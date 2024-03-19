@@ -78,8 +78,6 @@ const serializers = {
               return <h4 className="my-4">{props.children}</h4>
             case 'span':
               return <span className="my-4">{props.children}</span>
-            case 'ul':
-              return <ul style = {{listStyleType:"circle"}}>{props.children}</ul>
             default:
               return <p className="my-4">{props.children}</p>
           }

@@ -74,25 +74,27 @@ export async function Multimedia() {
           </Select>
         </div> */}
       </div>
-        <ScrollArea className="h-[80vh] p-4 rounded-md border">
-      <div className="grid grid-cols-1 items-start gap-6 mt-6 md:grid-cols-2 lg:grid-cols-3">
+      <ScrollArea className="h-[80vh] p-4 rounded-md border">
+        <div className="grid grid-cols-1 items-start gap-6 mt-6 md:grid-cols-2 lg:grid-cols-3">
           {media.map((item, index) => (
             <div key={index} className="col-span-1 flex flex-col space-y-2">
               <Link className="font-medium" href="/">
-                <Image
-                  alt="Thumbnail"
-                  className="aspect-video object-cover group-hover:opacity-75 transition-opacity rounded-lg overflow-hidden"
-                  height={225}
-                  src={item.imageUrl}
-                  width={400}
-                />
+                {item.imageUrl && (
+                  <Image
+                    alt="Thumbnail"
+                    className="aspect-video object-cover group-hover:opacity-75 transition-opacity rounded-lg overflow-hidden"
+                    height={225}
+                    src={item.imageUrl}
+                    width={400}
+                  />
+                )}
                 <p className="uppercase text-primary my-2">{item.type}</p>{" "}
                 {item.titre}
               </Link>
             </div>
           ))}
-      </div>
-        </ScrollArea>
+        </div>
+      </ScrollArea>
     </section>
   );
 }

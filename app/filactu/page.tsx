@@ -58,24 +58,23 @@ export default async function page() {
             <div key={item.titre} className="space-y-4">
               <Card className="h-full">
                 <div className="relative">
-                  <Image
-                    alt={item.imageUrl}
-                    className="rounded-lg object-cover w-full"
-                    height={300}
-                    width={600}
-                    src={item.imageUrl}
-                    style={{
-                      aspectRatio: "2/1",
-                      objectFit: "cover",
-                    }}
-                  />
+                  {item.imageUrl && (
+                    <Image
+                      alt={item.imageUrl}
+                      className="rounded-lg object-cover w-full"
+                      height={300}
+                      width={600}
+                      src={item.imageUrl}
+                      style={{
+                        aspectRatio: "2/1",
+                        objectFit: "cover",
+                      }}
+                    />
+                  )}
                 </div>
                 <div className="p-4 space-y-2">
                   <div className="flex gap-x-2 items-center">
-                    <Badge
-                      className="text-sm"
-                      variant={"outline"}
-                    >
+                    <Badge className="text-sm" variant={"outline"}>
                       {item.type == "la_une" ? "À la une" : "Article"}
                     </Badge>
                     <p className="text-muted-foreground my-2">

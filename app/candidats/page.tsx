@@ -80,17 +80,19 @@ function CandidateCard({
   return (
     <Card>
       <div className="flex items-center space-x-4 p-4">
-        <Image
-          alt="Image"
-          className="rounded-full"
-          height="80"
-          src={imageUrl}
-          style={{
-            aspectRatio: "80/80",
-            objectFit: "cover",
-          }}
-          width="80"
-        />
+        {imageUrl && (
+          <Image
+            alt="Image"
+            className="rounded-full"
+            height="80"
+            src={imageUrl}
+            style={{
+              aspectRatio: "80/80",
+              objectFit: "cover",
+            }}
+            width="80"
+          />
+        )}
         <CardHeader className="flex-1 min-w-0">
           <h3 className="text-lg font-semibold">{nom}</h3>
           <div className="flex gap-2">

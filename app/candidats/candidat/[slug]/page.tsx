@@ -20,7 +20,7 @@ interface CandidatType {
   age: number;
   lieu_de_naissance: string;
   parti: string;
-  bio: string; // Modify this according to your schema
+  bio: string;
   programUrl: string;
   photoUrl: string;
 }
@@ -66,34 +66,34 @@ const CandidatPage = async ({ params }: Params) => {
             PROFIL DU <span className="text-primary">CANDIDAT</span>
           </h1>
         </div>
-        <Card className="w-full bg-background mx-auto max-w-fit mb-8 py-8">
+        <Card className="w-full bg-background mx-auto mb-8 py-8">
           <CardContent className="flex flex-col items-start space-y-4">
-          <div className="flex gap-2 w-[300px]">
-            <Image
-              alt="Avatar"
-              className="w-full h-full rounded-lg"
-              height={100}
-              width={100}
-              quality={100}
-              src={candidat.photoUrl}
-              style={{
-                objectFit: "cover",
-              }}
-            />
-            <div className="w-full flex items-center space-x-4">
-              <div className="grid text-sm gap-1.5">
-                <div className="font-semibold">{candidat.nom}</div>
-                <div className="flex items-center space-x-2 text-xs">
-                  <p>
-                    {candidat.parti} &nbsp;{" | "} &nbsp; {candidat.age} ans
-                    &nbsp;{" | "} &nbsp; {candidat.lieu_de_naissance}
-                  </p>
+            <div className="max-md:block flex gap-2 w-full">
+              {candidat.photoUrl && (
+                  <Image
+                    alt="Photo de profil du candidat"
+                    className="max-md:w-full rounded-lg"
+                    height={300}
+                    width={300}
+                    quality={100}
+                    src={candidat.photoUrl}
+                    objectFit="cover"
+                  />
+              )}
+              <div className="w-full  max-md:my-4 flex items-center space-x-4">
+                <div className="grid text-base gap-1.5">
+                  <div className="font-semibold">{candidat.nom}</div>
+                  <div className="flex items-center space-x-2 text-sm">
+                    <p>
+                      {candidat.parti} &nbsp;{" | "} &nbsp; {candidat.age} ans
+                      &nbsp;{" | "} &nbsp; {candidat.lieu_de_naissance}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
             <Card className="w-full">
-              <CardContent className="space-y-4 text-sm py-4 [&>ul]:list-disc">
+              <CardContent className="space-y-4 text-sm py-4 px-8 [&_ul]:list-disc [&_ol]:list-decimal ">
                 {candidat.bio && (
                   <BlockContent
                     projectId={"yrzayet7"}
@@ -128,6 +128,10 @@ const serializers = {
       switch (props.node.style) {
         case "h1":
           return <h1 className="my-4">{props.children}</h1>;
+        case "h2":
+          return <h2 className="my-4">{props.children}</h2>;
+        case "h3":
+          return <h3 className="my-4">{props.children}</h3>;
         case "h4":
           return <h4 className="my-4">{props.children}</h4>;
         case "span":
@@ -140,12 +144,3 @@ const serializers = {
     },
   },
 };
-
-/* {candidat.bio && (
-              <BlockContent
-                projectId={"yrzayet7"}
-                dataset={"production"}
-                blocks={candidat.bio}
-                serializers={serializers}
-              />
-            )} */

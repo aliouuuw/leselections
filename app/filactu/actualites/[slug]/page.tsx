@@ -61,14 +61,16 @@ const page = async ({ params }: Params) => {
         <div>
           <header className="relative px-4 md:px-6 py-6">
             <div className="absolute top-0 left-0 -z-10 h-full w-full backdrop-blur-3xl">
-              <Image
-                alt="Hero image"
-                className="h-full w-full overflow-hidden rounded-lg object-cover brightness-75 opacity-40"
-                height={600}
-                src={article.imageUrl}
-                quality={100}
-                width={1200}
-              />
+              {article.imageUrl && (
+                <Image
+                  alt="Hero image"
+                  className="h-full w-full overflow-hidden rounded-lg object-cover brightness-75 opacity-40"
+                  height={600}
+                  src={article.imageUrl}
+                  quality={100}
+                  width={1200}
+                />
+              )}
             </div>
             <div className="space-y-1.5 h-full">
               <h1 className="text-3xl leading-9 font-bold tracking-tight">
@@ -115,7 +117,6 @@ const serializers = {
         case "span":
           return <span className="my-4">{props.children}</span>;
         case "ul":
-          return <ul style={{ listStyleType: "circle" }}>{props.children}</ul>;
         default:
           return <p className="my-4">{props.children}</p>;
       }
