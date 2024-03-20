@@ -11,7 +11,7 @@ const VoirPlus = ({url}: VoirPlusProps) => {
     <div className="px-4 py-6 flex items-center justify-center w-full">
       <div className="border-t w-full" />
       <Link className="font-semibold mx-2" href={`${url}`}>
-        <Button variant={"outline"}>Voir plus</Button>
+        <Button>Voir plus</Button>
       </Link>
       <div className="border-t w-full" />
     </div>

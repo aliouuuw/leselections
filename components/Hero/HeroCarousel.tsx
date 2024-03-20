@@ -57,14 +57,14 @@ export async function HeroCarousel() {
                   />
                 )}
               </div>
-              <div className="z-3 absolute bottom-0 left-0 h-fit md:w-1/2 rounded-tr-lg rounded-bl-lg bg-background/80 backdrop-blur-md p-4 flex flex-col gap-2">
-                <h2>{item.titre}</h2>
-                <p>{item.description}</p>
+              <div className="z-3 absolute bottom-0 left-0 max-sm:max-h-2/5 md:w-1/2 rounded-tr-lg rounded-bl-lg bg-background/80 backdrop-blur-md p-4 flex flex-col gap-2">
+                <h3 className="max-sm:text-base font-black">{item.titre}</h3>
+                <p className="max-sm:text-xs">{item.description}</p>
                 <Link
                   href={`/filactu/actualites/${item.slug.current}`}
                   target="_blank"
                 >
-                  <Button variant={"default"} className="w-28 self-end">
+                  <Button variant={"default"} className="w-28 self-end max-sm:h-6 max-sm:text-xs max-sm:w-20">
                     Lire l&apos;article{" "}
                   </Button>
                 </Link>

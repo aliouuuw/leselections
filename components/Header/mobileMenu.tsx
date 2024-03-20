@@ -75,20 +75,8 @@ export function MobileMenu() {
                 <Link href={"/"}>
                   <DropdownMenuItem>Histoire des Élections</DropdownMenuItem>
                 </Link>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>
-              Perspectives
-            </DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <Link href={"/editorials"}>
-                  <DropdownMenuItem>Éditorial de la Rédaction</DropdownMenuItem>
-                </Link>
                 <Link href={"/"}>
-                  <DropdownMenuItem>Lettres des Électeurs</DropdownMenuItem>
+                  <DropdownMenuItem>Fact-checking</DropdownMenuItem>
                 </Link>
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
@@ -100,9 +88,6 @@ export function MobileMenu() {
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
                 <Link href={"/"}>
-                  <DropdownMenuItem>Reportages</DropdownMenuItem>
-                </Link>
-                <Link href={"/"}>
                   <DropdownMenuItem>Podcasts</DropdownMenuItem>
                 </Link>
                 <Link href={"/"}>
@@ -112,10 +97,7 @@ export function MobileMenu() {
             </DropdownMenuPortal>
           </DropdownMenuSub>
           <Link href={"/"}>
-            <DropdownMenuItem>International</DropdownMenuItem>
-          </Link>
-          <Link href={"/"}>
-            <DropdownMenuItem>Fact-checking</DropdownMenuItem>
+            <DropdownMenuItem>Lettres de Élécteurs</DropdownMenuItem>
           </Link>
         </DropdownMenuGroup>
       </DropdownMenuContent>

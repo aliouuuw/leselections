@@ -103,7 +103,7 @@ function CandidateCard({
         </CardHeader>
       </div>
       <CardContent className="space-y-2">
-        <p className="text-sm text-muted-foreground">Parcours politique</p>
+        <p className="text-sm text-muted-foreground">Bio</p>
         <p className="text-sm">{apercu}</p>
       </CardContent>
       <CardFooter>

@@ -1,14 +1,14 @@
 import React from "react";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header/Header";
-import { sanityClient, urlFor } from "@/sanity-client";
+import { sanityClient } from "@/sanity-client";
 import { notFound } from "next/navigation";
 import moment from "moment";
 import "moment/locale/fr";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
-import candidat from "@/sanity/schemaTypes/candidat";
-const BlockContent = require("@sanity/block-content-to-react");
+import { PortableText } from "next-sanity";
+import { RichTextComponents } from "@/components/RichTextComponents";
 
 interface Params {
   params: {
@@ -18,7 +18,7 @@ interface Params {
 
 interface ArticlesType {
   titre: string;
-  contenu: string;
+  contenu: any;
   datetime: string;
   type: string;
   imageUrl: string;
@@ -89,12 +89,10 @@ const page = async ({ params }: Params) => {
             </div>
           </header>
           <Separator className="my-4" />
-          <div className="px-4 md:px-6 py-6 space-y-8 prose max-w-none [&_ul]:list-disc [&_ol]:list-decimal">
-            <BlockContent
-              projectId={"yrzayet7"}
-              dataset={"production"}
-              blocks={article.contenu}
-              serializers={serializers}
+          <div className="px-4 py-6 md:px-6 max-w-none">
+            <PortableText
+              value={article.contenu}
+              components={RichTextComponents}
             />
           </div>
         </div>
@@ -105,26 +103,3 @@ const page = async ({ params }: Params) => {
 };
 
 export default page;
-
-const serializers = {
-  types: {
-    block: (props: { node: { style: any }; children: React.ReactNode }) => {
-      switch (props.node.style) {
-        case "h1":
-          return <h1 className="my-4">{props.children}</h1>;
-        case "h2":
-          return <h2 className="my-4">{props.children}</h2>;
-        case "h3":
-          return <h3 className="my-4">{props.children}</h3>;
-        case "h4":
-          return <h4 className="my-4">{props.children}</h4>;
-        case "span":
-          return <span className="my-4">{props.children}</span>;
-        case "ul":
-          return <ul className="list-disc">{props.children}</ul>;
-        default:
-          return <p className="my-4">{props.children}</p>;
-      }
-    },
-  },
-};

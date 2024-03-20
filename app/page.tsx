@@ -4,7 +4,7 @@ import Header from "@/components/Header/Header";
 import Hero from "@/components/Hero/Hero";
 import { Candidats } from "@/components/Candidats";
 import Footer from "@/components/Footer";
-import { Multimedia } from "@/components/Multimedia";
+import { Multimedia } from "@/components/Multimedia/Multimedia";
 
 export default function Home() {
   return (

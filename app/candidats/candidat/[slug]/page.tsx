@@ -1,4 +1,3 @@
-import { Avatar } from "@/components/ui/avatar";
 import { CardContent, Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -6,8 +5,8 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer";
 import { sanityClient } from "@/sanity-client";
 import { notFound } from "next/navigation";
-
-const BlockContent = require("@sanity/block-content-to-react");
+import { PortableText } from "@portabletext/react";
+import { RichTextComponents } from "@/components/RichTextComponents";
 
 interface Params {
   params: {
@@ -20,7 +19,7 @@ interface CandidatType {
   age: number;
   lieu_de_naissance: string;
   parti: string;
-  bio: string;
+  bio: any;
   programUrl: string;
   photoUrl: string;
 }
@@ -70,15 +69,15 @@ const CandidatPage = async ({ params }: Params) => {
           <CardContent className="flex flex-col items-start space-y-4">
             <div className="max-md:block flex gap-2 w-full">
               {candidat.photoUrl && (
-                  <Image
-                    alt="Photo de profil du candidat"
-                    className="max-md:w-full rounded-lg"
-                    height={300}
-                    width={300}
-                    quality={100}
-                    src={candidat.photoUrl}
-                    objectFit="cover"
-                  />
+                <Image
+                  alt="Photo de profil du candidat"
+                  className="max-md:w-full rounded-lg"
+                  height={300}
+                  width={300}
+                  quality={100}
+                  src={candidat.photoUrl}
+                  objectFit="cover"
+                />
               )}
               <div className="w-full  max-md:my-4 flex items-center space-x-4">
                 <div className="grid text-base gap-1.5">
@@ -93,13 +92,11 @@ const CandidatPage = async ({ params }: Params) => {
               </div>
             </div>
             <Card className="w-full">
-              <CardContent className="space-y-4 text-sm py-4 px-8 [&_ul]:list-disc [&_ol]:list-decimal ">
+              <CardContent className="text-sm py-4">
                 {candidat.bio && (
-                  <BlockContent
-                    projectId={"yrzayet7"}
-                    dataset={"production"}
-                    blocks={candidat.bio}
-                    serializers={serializers}
+                  <PortableText
+                    value={candidat.bio}
+                    components={RichTextComponents}
                   />
                 )}
               </CardContent>
@@ -118,29 +115,3 @@ const CandidatPage = async ({ params }: Params) => {
 };
 
 export default CandidatPage;
-
-const serializers = {
-  types: {
-    block: (props: {
-      node: { style: any; listItem: any };
-      children: React.ReactNode;
-    }) => {
-      switch (props.node.style) {
-        case "h1":
-          return <h1 className="my-4">{props.children}</h1>;
-        case "h2":
-          return <h2 className="my-4">{props.children}</h2>;
-        case "h3":
-          return <h3 className="my-4">{props.children}</h3>;
-        case "h4":
-          return <h4 className="my-4">{props.children}</h4>;
-        case "span":
-          return <span className="my-4">{props.children}</span>;
-        case "ul":
-          return <ul className="list-disc">{props.children}</ul>;
-        default:
-          return <p className="my-4">{props.children}</p>;
-      }
-    },
-  },
-};

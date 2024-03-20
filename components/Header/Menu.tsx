@@ -46,15 +46,7 @@ export function Menu() {
               <ListItem href="/" title="Comment et Où Voter?"/>
               <ListItem href="/" title="Documents Nécessaires"/>
               <ListItem href="/" title="Histoire des Élections"/>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Perspectives</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid p-4 md:w-[300px] lg:w-[400px] lg:grid-cols-[.75fr_1fr]">
-              <ListItem href="/editorials" title="Éditorial de la Rédaction"/>
-              <ListItem href="/" title="Lettres des Électeurs"/>
+              <ListItem href="/" title="Fact-checking"/>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -62,7 +54,6 @@ export function Menu() {
           <NavigationMenuTrigger>Multimédia</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid p-4 md:w-[300px] lg:w-[400px] lg:grid-cols-[.75fr_1fr]">
-              <ListItem href="/" title="Reportages"/>
               <ListItem href="/" title="Podcasts"/>
               <ListItem href="/" title="Vidéos et Images"/>
             </ul>
@@ -71,14 +62,7 @@ export function Menu() {
         <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              International
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Fact-checking
+              Lettres des Élécteurs
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
