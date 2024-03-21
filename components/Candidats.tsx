@@ -8,7 +8,6 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import SectionTitle from "./SectionTitle";
-import { Separator } from "./ui/separator";
 import { sanityClient } from "@/sanity-client";
 import VoirPlus from "./VoirPlus";
 
@@ -49,7 +48,7 @@ export async function Candidats() {
     <section className="space-y-4 my-8">
       <SectionTitle title="Candidats" />
       <p className="text-muted-foreground">
-        Découvrez les candidats aux prochaines élections
+        Découvrez les candidats à l&apos;élection présidentielle
       </p>
       <div className="grid items-center gap-4 my-4">
         <div className="grid gap-6 md:gap-12 lg:grid-cols-2 xl:grid-cols-3">
@@ -71,8 +70,8 @@ function CandidateCard({
   slug,
 }: CandidatsProps) {
   return (
-    <Card>
-      <div className="flex items-center space-x-4 p-4">
+    <Card className="group hover:shadow-xl hover:border hover:border-primary transition-all duration-200">
+      <div className="flex items-center space-x-4 p-4 translate-x-0 group-hover:translate-x-2 transition duration-200 delay-75">
         {imageUrl && (
           <Image
             alt="Image"
@@ -95,13 +94,15 @@ function CandidateCard({
           </div>
         </CardHeader>
       </div>
-      <CardContent className="space-y-2">
+      <CardContent className="space-y-2 translate-x-0 group-hover:translate-x-2 transition duration-200 delay-150">
         <p className="text-sm text-muted-foreground">Bio</p>
         <p className="text-sm">{apercu}</p>
       </CardContent>
       <CardFooter>
         <Link href={`/candidats/candidat/${slug.current}`} passHref>
-          <Button size="sm">Voir le profil</Button>
+          <Button variant={"link"} size="sm">
+            Voir le profil
+          </Button>
         </Link>
       </CardFooter>
     </Card>

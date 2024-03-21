@@ -54,8 +54,8 @@ export function Menu() {
           <NavigationMenuTrigger>Multimédia</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid p-4 md:w-[300px] lg:w-[400px] lg:grid-cols-[.75fr_1fr]">
-              <ListItem href="/" title="Podcasts"/>
-              <ListItem href="/" title="Vidéos et Images"/>
+              <ListItem href="/podcasts" title="Podcasts"/>
+              <ListItem href="/videos_images" title="Vidéos et Images"/>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>

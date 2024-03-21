@@ -78,8 +78,8 @@ function CandidateCard({
   slug,
 }: CandidatsProps) {
   return (
-    <Card>
-      <div className="flex items-center space-x-4 p-4">
+    <Card className="group hover:shadow-xl hover:border hover:border-primary transition-all duration-200">
+      <div className="flex items-center space-x-4 p-4 translate-x-0 group-hover:translate-x-2 transition duration-200 delay-75">
         {imageUrl && (
           <Image
             alt="Image"
@@ -102,13 +102,13 @@ function CandidateCard({
           </div>
         </CardHeader>
       </div>
-      <CardContent className="space-y-2">
+      <CardContent className="space-y-2 translate-x-0 group-hover:translate-x-2 transition duration-200 delay-150">
         <p className="text-sm text-muted-foreground">Bio</p>
         <p className="text-sm">{apercu}</p>
       </CardContent>
       <CardFooter>
         <Link href={`/candidats/candidat/${slug.current}`} passHref>
-          <Button size="sm">Voir le profil</Button>
+          <Button variant={"link"} size="sm">Voir le profil</Button>
         </Link>
       </CardFooter>
     </Card>

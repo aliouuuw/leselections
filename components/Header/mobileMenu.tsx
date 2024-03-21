@@ -87,10 +87,10 @@ export function MobileMenu() {
             </Link>
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
-                <Link href={"/"}>
+                <Link href={"/podcasts"}>
                   <DropdownMenuItem>Podcasts</DropdownMenuItem>
                 </Link>
-                <Link href={"/"}>
+                <Link href={"/videos_images"}>
                   <DropdownMenuItem>Vidéos et Images</DropdownMenuItem>
                 </Link>
               </DropdownMenuSubContent>

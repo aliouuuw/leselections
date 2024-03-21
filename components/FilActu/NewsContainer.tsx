@@ -4,6 +4,7 @@ import Link from "next/link";
 import moment from "moment";
 import "moment/locale/fr";
 import VoirPlus from "../VoirPlus";
+import { Card, CardContent, CardHeader } from "../ui/card";
 
 moment.locale("fr");
 
@@ -25,7 +26,7 @@ const getActualités = async () => {
         description,
         datetime,
         "imageUrl": image.asset->url
-      }[0...4]
+      }[0...3]
     `,
       {},
       { next: { revalidate: 0 } }
@@ -41,38 +42,36 @@ export default async function NewsContainer() {
 
   return (
     <>
-      <div className="grid gap-4 mx-auto lg:max-w-screen lg:grid-cols-2 ">
+      <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
         {componentItems.map((item, index) => (
-          <div key={index} className="space-y-2 mb-4">
-            <div className="relative">
-              {item.imageUrl && (
-                <Image
-                  alt={item.imageUrl}
-                  className="rounded-lg object-cover w-full"
-                  height={300}
-                  width={600}
-                  src={item.imageUrl}
-                  style={{
-                    aspectRatio: "2/1",
-                    objectFit: "cover",
-                  }}
-                />
-              )}
-            </div>
-            <Link
-              href={`/filactu/actualites/${item.slug.current}`}
-              target="_blank"
-            >
-              <h2 className="text-2xl font-bold my-2 hover:underline hover:text-primary">
-                {item.titre}
-              </h2>
-            </Link>
-            <p className="text-muted-foreground my-2">
-              Publié le{" "}
-              {moment(item.datetime).format("dddd Do MMMM, [à] h:mm a")}
-            </p>
-            <p className="text-pretty text-justify ">{item.description}</p>
-          </div>
+          <Link
+            href={`/filactu/actualites/${item.slug.current}`}
+            target="_blank"
+            key={index}
+          >
+            <Card className="h-full group [&_h2]:hover:text-primary [&_#img]:hover:scale-[1.05]">
+              <CardHeader>
+                {item.imageUrl && (
+                  <Image
+                    alt={item.imageUrl}
+                    id="img"
+                    className="rounded-lg w-full h-80 transform transition duration-300"
+                    height={300}
+                    width={600}
+                    src={item.imageUrl}
+                  />
+                )}
+              </CardHeader>
+              <CardContent className="h-fit group-hover:-translate-y-2 transition duration-300 delay-50">
+                <h2 className="text-2xl font-bold my-2">{item.titre}</h2>
+                <p className="text-muted-foreground my-2">
+                  Publié le{" "}
+                  {moment(item.datetime).format("dddd Do MMMM, [à] h:mm a")}
+                </p>
+                <p className="text-pretty text-justify ">{item.description}</p>
+              </CardContent>
+            </Card>
+          </Link>
         ))}
       </div>
       <VoirPlus url="/filactu" />

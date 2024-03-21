@@ -29,22 +29,22 @@ export const RichTextComponents = {
   },
   block: {
     h1: ({ children }: any) => (
-      <h1 className="text-5xl ml-2 py-6">{children}</h1>
+      <h1 className="text-5xl py-6">{children}</h1>
     ),
     h2: ({ children }: any) => (
-      <h2 className="text-4xl ml-2 py-6">{children}</h2>
+      <h2 className="text-4xl py-6">{children}</h2>
     ),
     h3: ({ children }: any) => (
-      <h3 className="text-3xl ml-2 py-4">{children}</h3>
+      <h3 className="text-3xl py-4">{children}</h3>
     ),
     h4: ({ children }: any) => (
-      <h4 className="text-2xl ml-2 py-4">{children}</h4>
+      <h4 className="text-2xl py-4">{children}</h4>
     ),
     h5: ({ children }: any) => (
-      <h5 className="text-xl ml-2 py-4">{children}</h5>
+      <h5 className="text-xl py-4">{children}</h5>
     ),
     normal: ({ children }: any) => (
-      <p className="text-md font-light ml-2 mb-2">{children}</p>
+      <p className="text-md font-light mb-2">{children}</p>
     ),
     h6: ({ children }: any) => (
       <p className="-mt-2 pb-5 text-center font-thin">{children}</p>

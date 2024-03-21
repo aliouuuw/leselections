@@ -1,14 +1,9 @@
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import { sanityClient } from "@/sanity-client";
 import Link from "next/link";
+import { Carousel } from "flowbite-react";
+import CarouselTheme from "../carousel-theme";
 
 const getLaUne = async () => {
   try {
@@ -41,40 +36,43 @@ type LaUneType = {
 export async function HeroCarousel() {
   const laune: LaUneType[] = await getLaUne();
   return (
-    <Carousel className="w-full">
-      <CarouselContent className="h-[500px] object-center">
+    <div className="h-[60vh] md:h-[70vh]">
+      <Carousel theme={CarouselTheme} pauseOnHover>
         {laune.map((item, index) => (
-          <CarouselItem key={index} className="h-full">
-            <div className="relative w-full h-full rounded-lg flex flex-col items-center">
-              <div className="z-1 absolute top-0 left-0 rounded-lg w-full h-full">
-                {item.imageUrl && (
-                  <Image
-                    src={item.imageUrl}
-                    alt="Image à la une"
-                    quality={100}
-                    fill
-                    className="rounded-lg object-cover object-center"
-                  />
-                )}
-              </div>
-              <div className="z-3 absolute bottom-0 left-0 max-sm:max-h-2/5 md:w-1/2 rounded-tr-lg rounded-bl-lg bg-background/80 backdrop-blur-md p-4 flex flex-col gap-2">
-                <h3 className="max-sm:text-base font-black">{item.titre}</h3>
-                <p className="max-sm:text-xs">{item.description}</p>
-                <Link
-                  href={`/filactu/actualites/${item.slug.current}`}
-                  target="_blank"
-                >
-                  <Button variant={"default"} className="w-28 self-end max-sm:h-6 max-sm:text-xs max-sm:w-20">
-                    Lire l&apos;article{" "}
-                  </Button>
-                </Link>
-              </div>
+          <div
+            key={index}
+            className="relative w-full h-full rounded-lg"
+          >
+            <div className="absolute top-0 left-0 w-full h-1/2 md:h-full">
+
+              {item.imageUrl && (
+                <Image
+                  src={item.imageUrl}
+                  alt="Image à la une"
+                  quality={100}
+                  fill
+                  className="w-full h-full rounded-top-lg object-center"
+                />
+              )}
             </div>
-          </CarouselItem>
+            <div className="absolute bottom-0 left-0 max-sm:min-h-[50%] md:max-h-[50%] rounded-b-lg bg-background/80 backdrop-blur-md p-4 flex flex-col gap-2">
+              <h3 className="max-sm:text-base font-black">{item.titre}</h3>
+              <p className="max-sm:text-xs">{item.description}</p>
+              <Link
+                href={`/filactu/actualites/${item.slug.current}`}
+                target="_blank"
+              >
+                <Button
+                  variant={"default"}
+                  className="w-28 self-end max-sm:h-6 max-sm:text-xs max-sm:w-20"
+                >
+                  Lire l&apos;article{" "}
+                </Button>
+              </Link>
+            </div>
+          </div>
         ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
+      </Carousel>
+    </div>
   );
 }
