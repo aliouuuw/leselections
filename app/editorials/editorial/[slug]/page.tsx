@@ -133,14 +133,14 @@ const page = async ({ params }: Params) => {
         </header>
         <div className="px-8 pb-8 w-full md:px-36 grid grid-cols-3">
           <div className="w-full py-8 px-2 lg:max-w-[80%] text-pretty col-span-3 lg:col-span-2">
-            <h2>{article.type == "la_une" ? "À la une:" : "Article:"}</h2>
+            <h2 className="text-2xl font-black mb-4">{article.type == "la_une" ? "À la une:" : "Article:"} <span>{article.titre}</span></h2>
             <PortableText
               value={article.contenu}
               components={RichTextComponents}
             />
           </div>
           <div className="py-8 w-full col-span-3 lg:col-span-1">
-            <h3>Autres articles</h3>
+            <h3 className="mb-4">Autres articles</h3>
             <div className="w-full bg-background rounded-lg border ">
               <div
                 className="h-96 w-full snap-y snap-mandatory overflow-scroll"
