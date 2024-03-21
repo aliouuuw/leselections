@@ -6,26 +6,19 @@ function Footer() {
   return (
     <footer className="px-8 md:px-36 border-t py-4">
       <div className="py-4">
-        <h4 className="font-[1500px] text-xl my-2">Siège social:</h4>
+        <h2 className="font-blacck my-2">Service commercial:</h2>
         <p>
-        39 Av. Faidherbe, Dakar, Senegal
+        Dakar, Senegal. Afrique
         </p>
-        <a className="underline hover:text-primary" href="tel:1-905-499-3618">
-          +1-905-499-3618
+        <a className="font-black text-primary hover:underline" href="tel:33-7-53-62-03-55">
+          +33 7 53 62 03 55
         </a>
-        <p>Fax: +1-905-499-3618</p>
         <br />
-        <div className="flex flex-col">
-          <Link href="/privacy" legacyBehavior passHref>
-            <a target="_blank" className="text-primary hover:underline">
-            Conditions d&apos;utilisation
-            </a>
-          </Link>
-          <Link href="/terms" legacyBehavior passHref>
-            <a target="_blank" className="text-primary hover:underline">
-            Politique de confidentialité
-            </a>
-          </Link>
+        <div>
+        <h2 className="font-black my-2">Rédaction/Contributions:</h2>
+         <p>
+          Email: <a target="_blank" href="mailto: contact@@leselections.info"><span className="font-black text-primary hover:underline">afriquelections@gmail.com</span></a>
+         </p>
         </div>
       </div>
       <div className="mt-8 flex justify-center gap-x-10">
