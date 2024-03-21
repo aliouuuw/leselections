@@ -6,7 +6,7 @@ function Footer() {
   return (
     <footer className="px-8 md:px-36 border-t py-4">
       <div className="py-4">
-        <h2 className="font-blacck my-2">Service commercial:</h2>
+        <h3 className="font-black my-2">Service commercial:</h3>
         <p>
         Dakar, Senegal. Afrique
         </p>
@@ -15,7 +15,7 @@ function Footer() {
         </a>
         <br />
         <div>
-        <h2 className="font-black my-2">Rédaction/Contributions:</h2>
+        <h3 className="font-black my-2">Rédaction/Contributions:</h3>
          <p>
           Email: <a target="_blank" href="mailto: contact@@leselections.info"><span className="font-black text-primary hover:underline">afriquelections@gmail.com</span></a>
          </p>
