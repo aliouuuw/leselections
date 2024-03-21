@@ -100,9 +100,9 @@ const page = async ({ params }: Params) => {
           <div className="px-8 md:px-36 h-full w-full p-8 absolute top-0 left-0 backdrop-blur-md dark:backdrop-blur-lg flex items-center justify-center">
             <div className="flex justify-around items-center max-sm:scale-75 max-md:scale-90">
               <div className="w-1/2">
-                <h2 className=" leading-9 font-bold tracking-tight">
+                <h3 className=" leading-9 font-bold tracking-tight">
                   {article.titre}
-                </h2>
+                </h3>
                 <div className="flex space-x-2 text-sm">
                   <span className="font-medium text-muted-foreground">
                     {article.type == "la_une" ? "À la une" : "Article"}
