@@ -8,7 +8,7 @@ type AudioProps = {
     description: string;
     source: string;
   }[];
-  size?: number,
+  size?: string,
 };
 
 const AudioPlayer = ({ audios, size }: AudioProps) => {
