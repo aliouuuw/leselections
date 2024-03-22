@@ -21,6 +21,7 @@
     "@sanity/block-content-to-react": "^3.0.0",
     "@sanity/vision": "^3.30.0",
     "@tailwindcss/line-clamp": "^0.4.4",
+    "@vercel/analytics": "^1.2.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "embla-carousel-react": "^8.0.0",
