@@ -20,19 +20,12 @@ export default {
       validation: (Rule: { required: () => any }) => Rule.required(),
     },
     {
-      name: "vignette",
-      type: "image",
-      title: "Vignette du média",
-    },
-    {
       name: "type",
       type: "string",
       title: "Type",
       description: "Type de média",
       options: {
         list: [
-          { title: "Document", value: "document" },
-          { title: "Interview", value: "interview" },
           { title: "Photo", value: "photo" },
           { title: "Podcast", value: "podcast" },
           { title: "Video", value: "video" },

@@ -25,7 +25,7 @@ export function Menu() {
           <NavigationMenuContent>
             <ul className="grid p-4 md:w-[300px] lg:w-[400px] lg:grid-cols-[.75fr_1fr]">
               <ListItem href="/#la_une" title="À la une" />
-              <ListItem href="/#filactu" title="Fil d&apos;Actualité" />              
+              <ListItem href="/filactu" title="Fil d&apos;Actualité" />              
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -33,7 +33,7 @@ export function Menu() {
           <NavigationMenuTrigger>Candidats</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid p-4 md:w-[300px] lg:w-[400px] lg:grid-cols-[.75fr_1fr]">
-              <ListItem href="/#candidats" title="Profils des Candidats"/>
+              <ListItem href="/candidats" title="Profils des Candidats"/>
               <ListItem href="/" title="Analyse des Politiques"/>
               <ListItem href="/" title="Débats et Opinions"/>
             </ul>
@@ -46,15 +46,7 @@ export function Menu() {
               <ListItem href="/" title="Comment et Où Voter?"/>
               <ListItem href="/" title="Documents Nécessaires"/>
               <ListItem href="/" title="Histoire des Élections"/>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Perspectives Éditoriales</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid p-4 md:w-[300px] lg:w-[400px] lg:grid-cols-[.75fr_1fr]">
-              <ListItem href="/" title="Éditorial de la Rédaction"/>
-              <ListItem href="/" title="Lettres des Lecteurs"/>
+              <ListItem href="/" title="Fact-checking"/>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -62,23 +54,15 @@ export function Menu() {
           <NavigationMenuTrigger>Multimédia</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid p-4 md:w-[300px] lg:w-[400px] lg:grid-cols-[.75fr_1fr]">
-              <ListItem href="/" title="Reportages"/>
-              <ListItem href="/" title="Podcasts"/>
-              <ListItem href="/" title="Vidéos et Images"/>
+              <ListItem href="/podcasts" title="Podcasts"/>
+              <ListItem href="/videos_images" title="Vidéos et Images"/>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <Link href="/" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              International
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Fact-checking
+              Lettres des Élécteurs
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>

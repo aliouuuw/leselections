@@ -6,15 +6,20 @@ function Footer() {
   return (
     <footer className="px-8 md:px-36 border-t py-4">
       <div className="py-4">
-        <h4 className="font-[1500px] text-xl my-2">Siège social:</h4>
+        <h3 className="font-black my-2">Service commercial:</h3>
         <p>
-        39 Av. Faidherbe, Dakar, Senegal
+        Dakar, Senegal. Afrique
         </p>
-        <a className="underline hover:text-primary" href="tel:1-905-499-3618">
-          +1-905-499-3618
+        <a className="font-black text-primary hover:underline" href="tel:221-70-450-44-44">
+          +221 70 450 44 44
         </a>
-        <p>Fax: +1-905-499-3618</p>
         <br />
+        <div>
+        <h3 className="font-black my-2">Rédaction/Contributions:</h3>
+         <p>
+          Email: <a target="_blank" href="mailto: contact@@leselections.info"><span className="font-black text-primary hover:underline">afriquelections@gmail.com</span></a>
+         </p>
+        </div>
       </div>
       <div className="mt-8 flex justify-center gap-x-10">
         <a target="_blank" href="https://www.facebook.com/profile.php?id=61555627563552">

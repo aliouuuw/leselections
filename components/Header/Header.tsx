@@ -29,19 +29,19 @@ export default function Header() {
     <header className={`z-50 sticky top-0 left-0 bg-background/80 backdrop-blur-md px-8 py-2 md:px-16 flex justify-between items-center transition-transform duration-300 ${
       scrolling ? "-translate-y-full" : "translate-y-0"
     }`}>
-      <div className="flex items-center min-[1218px]:hidden">
+      <div className="flex items-center min-[1023px]:hidden">
         <MobileMenu />
       </div>
       <Link href="/">
         <Image src={icon} width={80} alt="Les éléctions logo" />
       </Link>
-      <div className="hidden min-[1218px]:block">
+      <div className="hidden min-[1023px]:block">
         <Menu />
       </div>
-      <div className="hidden min-[1218px]:block">
+      <div className="hidden min-[1023px]:block">
         <ModeToggle />
       </div>
-      <div className="flex items-center min-[1218px]:hidden">
+      <div className="flex items-center min-[1023px]:hidden">
         <ModeToggle />
       </div>
     </header>

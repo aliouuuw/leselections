@@ -31,17 +31,27 @@ export default {
         validation: (Rule: { required: () => any }) => Rule.required(),
       },
       {
+        name: "age",
+        type: "number",
+        title: "Âge",
+      },
+      {
+        name: "lieu_de_naissance",
+        type: "string",
+        title: "Lieu de Naissance",
+      },
+      {
         name:"apercu",
         type: "string",
         title: "apercu",
-        description: "Aperçu du profil"
+        description: "Aperçu/Résumé du profil"
       },
       {
         name: "bio",
         type: "array",
         title: "Bio",
         description:
-          "Biographie du candidat (peut inclure du texte, images, videos, etc.)",
+          "Carrière politique (peut inclure du texte, images, videos, etc.)",
         of: [
           // Define the block types allowed in the array
           {
@@ -53,6 +63,18 @@ export default {
           }
         ],
         validation: (Rule: { required: () => any }) => Rule.required(),
+      },
+      {
+        name: "programme",
+        type: "file",
+        title: "Programme",
+        fields: [
+          {
+            name: "description",
+            type: "string",
+            title: "Description",
+          }
+        ],
       },
     ],
   };

@@ -1,55 +1,61 @@
-import Image from "next/image";
 import Link from "next/link";
-import SectionTitle from "./SectionTitle";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import { sanityClient } from "@/sanity-client";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header/Header";
 import moment from "moment";
 import "moment/locale/fr";
-import { Separator } from "./ui/separator";
-import VoirPlus from "./VoirPlus";
-import { Button } from "./ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 
-type EditorPicksProps = {
+moment.locale("fr");
+
+type ArticleType = {
   titre: string;
   slug: { current: string };
   datetime: string;
+  type: string;
   description: string;
   imageUrl: string;
 };
 
-const getEditorial = async () => {
+const getArticles = async () => {
   try {
-    const editorial = await sanityClient.fetch(
+    const article = await sanityClient.fetch(
       `
-      *[_type == 'article' && type == "editorial"] | order(datetime desc) {
-        titre,
-        slug,
-        datetime,
-        description,
-        "imageUrl": image.asset->url
-      }[0...3]
-    `,
+        *[_type == 'article' && type == "editorial"] | order(datetime desc) {
+          titre,
+          slug,
+          type,
+          description,
+          datetime,
+          "imageUrl": image.asset->url
+        }
+      `,
       {},
       { next: { revalidate: 0 } }
     );
-    return editorial;
+    return article;
   } catch (error) {
-    console.error("Error fetching editorial:", error);
+    console.error("Error fetching article:", error);
   }
 };
 
-export async function EditorPicks() {
-  const picks: EditorPicksProps[] = await getEditorial();
-
+export default async function page() {
+  const articles: ArticleType[] = await getArticles();
   return (
-    <section className="space-y-4 my-8">
-      <SectionTitle title="Éditorial de la rédaction" />
-      <p className="text-muted-foreground">
-        Analyses réfléchies et articles d&apos;opinion de notre équipe
-        éditoriale
-      </p>
-      <div className="space-y-6">
+    <>
+      <Header />
+      <main className="px-8 pb-8 md:px-36">
+        <div className="text-center py-4">
+          <h1>
+            ÉDITORIAL DE LA <span className="text-primary">RÉDACTION</span>
+          </h1>
+        </div>
         <div>
-          {picks.map((item, index) => (
+          {articles.map((item, index) => (
             <Link
               href={`/editorials/editorial/${item.slug.current}`}
               target="_blank"
@@ -73,25 +79,27 @@ export async function EditorPicks() {
                     )}
                   </div>
                   <div className="col-span-4 md:col-span-3">
-                    <h4 className="font-black my-4 uppercase line-clamp-2">
+                    <h4 className="font-black text-2xl hover:underline hover:text-primary">
                       {item.titre}
                     </h4>
                     <p className="text-muted-foreground my-2">
                       Publié le{" "}
                       {moment(item.datetime).format("dddd Do MMMM, [à] h:mm a")}
                     </p>
-                    <div className="flex flex-col gap-2 line-clamp-2">
+                    <div className="flex flex-col gap-2">
                       <p>{item.description}</p>
                     </div>
                   </div>
                 </div>
-                {index !== picks.length - 1 && <Separator className="my-2" />}
+                {index !== articles.length - 1 && (
+                  <Separator className="my-2" />
+                )}
               </div>
             </Link>
           ))}
         </div>
-        <VoirPlus url="/editorials" />
-      </div>
-    </section>
+      </main>
+      <Footer />
+    </>
   );
 }
