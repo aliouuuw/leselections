@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-import { AlignJustify } from "lucide-react";
+import { AlignJustify, BookOpen } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 
@@ -51,7 +51,7 @@ export function MobileMenu() {
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
                 <Link href={"/candidats"}>
-                  <DropdownMenuItem>Profil des Candidats</DropdownMenuItem>
+                  <DropdownMenuItem>Profils des Candidats</DropdownMenuItem>
                 </Link>
                 <Link href={"/"}>
                   <DropdownMenuItem>Analyse des Politques</DropdownMenuItem>
@@ -100,6 +100,14 @@ export function MobileMenu() {
             <DropdownMenuItem>Lettres de Élécteurs</DropdownMenuItem>
           </Link>
         </DropdownMenuGroup>
+        <DropdownMenuSeparator />
+        <DropdownMenuGroup>
+          <Link href={"/"}>
+            <DropdownMenuItem className="gap-2"><BookOpen className="h-4 w-4" /> Magazine</DropdownMenuItem>
+          </Link>
+
+        </DropdownMenuGroup>
+
       </DropdownMenuContent>
     </DropdownMenu>
   );
