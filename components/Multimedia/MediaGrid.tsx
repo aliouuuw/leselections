@@ -77,13 +77,6 @@ export async function MediaGrid() {
 
   const items = [
     {
-      title: "Audios",
-      description: <Description description="Tous nos podcasts" url="/podcasts" />,
-      header: <AudioPlayer audios={audios} />,
-      className: "md:col-span-2",
-      icon: <AudioLines className="h-4 w-4 text-muted-foreground" />,
-    },
-    {
       title: "Images",
       description: <Description description="Toutes nos images" url="/videos_images" />,
       header: <ImagePlace images={images} />,
@@ -97,6 +90,13 @@ export async function MediaGrid() {
       header: <VideoPlayer videos={videos} />,
       className: "md:col-span-1",
       icon: <Video className="h-4 w-4 text-muted-foreground" />,
+    },
+    {
+      title: "Audios",
+      description: <Description description="Tous nos podcasts" url="/podcasts" />,
+      header: <AudioPlayer audios={audios} />,
+      className: "md:col-span-2",
+      icon: <AudioLines className="h-4 w-4 text-muted-foreground" />,
     },
   ];
   return (

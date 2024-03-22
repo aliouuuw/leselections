@@ -78,26 +78,26 @@
 
   @keyframes marquee {
     0% {
-      transform: translateX(100%);
+      transform: translateX(30%);
     }
     100% {
       transform: translateX(-100%);
     }
   }
   .marquee {
-    animation: marquee 30s linear infinite;
+    animation: marquee 65s linear infinite;
   }
   @media screen  and (max-width: 768px){
     @keyframes marquee {
       0% {
-        transform: translateX(25%);
+        transform: translateX(10%);
       }
       100% {
         transform: translateX(-100%);
       }
     }
     .marquee {
-      animation: marquee 25s linear infinite;
+      animation: marquee 60s linear infinite;
     }
   }
 
