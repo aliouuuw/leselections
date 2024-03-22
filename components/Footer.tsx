@@ -10,8 +10,11 @@ function Footer() {
         <p>
         Dakar, Senegal. Afrique
         </p>
-        <a className="font-black text-primary hover:underline" href="tel:33-7-53-62-03-55">
+        <a className="block font-black text-primary hover:underline" href="tel:33-7-53-62-03-55">
           +33 7 53 62 03 55
+        </a>
+        <a className="font-black text-primary hover:underline" href="tel:221-70-450-44-44">
+          +221 70 450 44 44
         </a>
         <br />
         <div>

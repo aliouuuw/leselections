@@ -23,7 +23,7 @@ interface ArticlesType {
   datetime: string;
   type: string;
   imageUrl: string;
-  slug: {current: string}
+  slug: { current: string };
 }
 
 async function getArticle(slug: string) {
@@ -70,8 +70,6 @@ async function getArticles(slug: string) {
   }
 }
 
-
-
 const page = async ({ params }: Params) => {
   const article: ArticlesType = await getArticle(params?.slug);
   const others: ArticlesType[] = await getArticles(params?.slug);
@@ -98,8 +96,8 @@ const page = async ({ params }: Params) => {
             )}
           </div>
           <div className="px-8 md:px-36 h-full w-full p-8 absolute top-0 left-0 backdrop-blur-md dark:backdrop-blur-lg flex items-center justify-center">
-            <div className="flex justify-around items-center max-sm:scale-75 max-md:scale-90">
-              <div className="w-1/2">
+            <div className="w-full h-full grid grid-cols-2 max-sm:scale-75">
+              <div className="col-span-2 lg:col-span-1 m-auto">
                 <h3 className=" leading-9 font-bold tracking-tight">
                   {article.titre}
                 </h3>
@@ -116,7 +114,7 @@ const page = async ({ params }: Params) => {
                   </time>
                 </div>
               </div>
-              <div className="ml-auto max-md:scale-90">
+              <div className="col-span-2 lg:col-span-1 lg:ml-auto m-auto max-md:scale-90">
                 {article.imageUrl && (
                   <Image
                     alt="Hero image"
@@ -131,9 +129,8 @@ const page = async ({ params }: Params) => {
             </div>
           </div>
         </header>
-        <div className="px-8 pb-8 w-full md:px-36 grid grid-cols-3">
-          <div className="w-full py-8 px-2 lg:max-w-[80%] text-pretty col-span-3 lg:col-span-2">
-            <h2 className="text-2xl font-black mb-4">{article.type == "la_une" ? "À la une:" : "Article:"} <span>{article.titre}</span></h2>
+        <div className="px-8 pb-8 w-full md:px-36 grid grid-cols-3 lg:gap-x-4">
+          <div className="w-full overflow-hidden py-8 px-2 max-w-full text-wrap col-span-3 lg:col-span-2">
             <PortableText
               value={article.contenu}
               components={RichTextComponents}
@@ -142,9 +139,7 @@ const page = async ({ params }: Params) => {
           <div className="py-8 w-full col-span-3 lg:col-span-1">
             <h3 className="mb-4">Autres articles</h3>
             <div className="w-full bg-background rounded-lg border ">
-              <div
-                className="h-96 w-full snap-y snap-mandatory overflow-scroll"
-              >
+              <div className="h-96 w-full snap-y snap-mandatory overflow-scroll">
                 {others.map((article, index) => (
                   <Link
                     key={index}

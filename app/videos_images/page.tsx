@@ -1,4 +1,3 @@
-
 import Footer from "@/components/Footer";
 import Header from "@/components/Header/Header";
 import { sanityClient } from "@/sanity-client";
@@ -13,7 +12,9 @@ const getVideos = async () => {
         datetime,
         "source": fichier.asset -> url,
         "description":fichier.description,
-      }`
+      }`,
+      {},
+      { next: { revalidate: 0 } }
     );
     return videos;
   } catch (error) {
@@ -30,7 +31,9 @@ const getImages = async () => {
         datetime,
         "source": fichier.asset -> url,
         "description": fichier.description,
-      }`
+      }`,
+      {},
+      { next: { revalidate: 0 } }
     );
     return images;
   } catch (error) {
@@ -46,11 +49,9 @@ const page = async () => {
       <Header />
       <main className="px-8 pb-8 md:px-36">
         <div className="text-center py-4">
-          <h1>
-            FIL D&apos;<span className="text-primary">ACTUALITÉ</span>
-          </h1>
+          <h1>VIDÉOS & <span className="text-primary">IMAGES</span></h1>
         </div>
-          <MediaRender videos={videos} images={images}/>
+        <MediaRender videos={videos} images={images} />
       </main>
       <Footer />
     </>

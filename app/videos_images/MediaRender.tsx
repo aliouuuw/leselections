@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Key, useState } from "react";
+import { Key, useEffect, useState } from "react";
 import ReactPlayer from "react-player";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -20,8 +20,15 @@ interface MediaPageProps {
 }
 
 const MediaRender: React.FC<MediaPageProps> = ({ videos, images }) => {
-  const [selectedMedia, setSelectedMedia] = useState<Media | null>(null);
+  const [selectedMedia, setSelectedMedia] = useState<Media | null>();
 
+  useEffect(() => {
+    if (videos) {
+      setSelectedMedia(videos[0])
+    }
+    else setSelectedMedia(images[0])
+    return
+  }, [])
   const handleMediaSelect = (media: Media) => {
     setSelectedMedia(media);
   };
@@ -30,19 +37,23 @@ const MediaRender: React.FC<MediaPageProps> = ({ videos, images }) => {
     <>
       <div className="flex flex-col gap-y-4 scroll-smooth">
         <div className="w-full h-fit">
-          <h2 className="my-2">Média Séléctionné</h2>
+          <h2 className="my-2">Média séléctionné</h2>
           <p className="text-sm mb-4 text-muted-foreground">Choisissez un média pour à visualiser </p>
           <div className="w-full border rounded-lg flex items-center justify-center h-96">
             {selectedMedia?.type === "video" ? (
                 <ReactPlayer url={selectedMedia.source} controls />
             ) : (
-              <Image
-                src={selectedMedia ? selectedMedia.source : "/placeholder.svg"}
-                alt={selectedMedia ? selectedMedia.titre : "placeholder"}
-                width={100}
-                height={100}
-                className="w-full h-full object-contain"
-              />
+              <div className="w-full h-full">
+                <Image
+                  className="w-full h-full object-contain"
+                  src={selectedMedia ? selectedMedia.source : "/placeholder.svg"}
+                  alt={selectedMedia ? selectedMedia.titre : "placeholder"}
+                  height={1000}
+                  width={1000}
+                  quality={100}
+                />
+
+              </div>
             )}
           </div>
         </div>

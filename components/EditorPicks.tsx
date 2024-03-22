@@ -73,7 +73,7 @@ export async function EditorPicks() {
                     )}
                   </div>
                   <div className="col-span-4 md:col-span-3">
-                    <h4 className="font-black text-2xl">
+                    <h4 className="font-black text-2xl my-4">
                       {item.titre}
                     </h4>
                     <p className="text-muted-foreground my-2">
