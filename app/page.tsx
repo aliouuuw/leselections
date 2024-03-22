@@ -5,6 +5,7 @@ import Hero from "@/components/Hero/Hero";
 import { Candidats } from "@/components/Candidats";
 import Footer from "@/components/Footer";
 import { Multimedia } from "@/components/Multimedia/Multimedia";
+import LettresElect from "@/components/LettersElect/LettresElect";
 
 export default function Home() {
   return (

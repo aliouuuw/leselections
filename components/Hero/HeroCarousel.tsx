@@ -36,15 +36,11 @@ type LaUneType = {
 export async function HeroCarousel() {
   const laune: LaUneType[] = await getLaUne();
   return (
-    <div className="h-[60vh] md:h-[70vh]">
+    <div className="h-[60vh] md:h-[70vh] xl:h-[85vh]">
       <Carousel theme={CarouselTheme} pauseOnHover>
         {laune.map((item, index) => (
-          <div
-            key={index}
-            className="relative w-full h-full rounded-lg"
-          >
+          <div key={index} className="relative w-full h-full rounded-lg">
             <div className="absolute top-0 left-0 w-full h-1/2 md:h-full">
-
               {item.imageUrl && (
                 <Image
                   src={item.imageUrl}
@@ -55,9 +51,9 @@ export async function HeroCarousel() {
                 />
               )}
             </div>
-            <div className="absolute bottom-0 left-0 max-sm:min-h-[50%] md:max-h-[50%] rounded-b-lg bg-background/80 backdrop-blur-md p-4 flex flex-col gap-2">
-              <h3 className="max-sm:text-base font-black">{item.titre}</h3>
-              <p className="max-sm:text-xs">{item.description}</p>
+            <div className="absolute bottom-0 left-0 w-full max-sm:min-h-[50%] md:max-h-[50%] rounded-b-lg bg-background/80 backdrop-blur-md p-4 flex flex-col gap-2">
+              <h3 className="max-sm:text-base font-black uppercase line-clamp-2">{item.titre}</h3>
+              <p className="max-sm:text-xs line-clamp-2">{item.description}</p>
               <Link
                 href={`/filactu/actualites/${item.slug.current}`}
                 target="_blank"

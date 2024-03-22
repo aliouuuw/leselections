@@ -73,14 +73,14 @@ export async function EditorPicks() {
                     )}
                   </div>
                   <div className="col-span-4 md:col-span-3">
-                    <h4 className="font-black text-2xl my-4">
+                    <h4 className="font-black my-4 uppercase line-clamp-2">
                       {item.titre}
                     </h4>
                     <p className="text-muted-foreground my-2">
                       Publié le{" "}
                       {moment(item.datetime).format("dddd Do MMMM, [à] h:mm a")}
                     </p>
-                    <div className="flex flex-col gap-2">
+                    <div className="flex flex-col gap-2 line-clamp-2">
                       <p>{item.description}</p>
                     </div>
                   </div>

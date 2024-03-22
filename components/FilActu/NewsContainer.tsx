@@ -49,7 +49,7 @@ export default async function NewsContainer() {
             target="_blank"
             key={index}
           >
-            <Card className="h-full group [&_h2]:hover:text-primary [&_#img]:hover:scale-[1.05]">
+            <Card className="h-full group [&_h4]:hover:text-primary [&_#img]:hover:scale-[1.05]">
               <CardHeader>
                 {item.imageUrl && (
                   <Image
@@ -63,12 +63,12 @@ export default async function NewsContainer() {
                 )}
               </CardHeader>
               <CardContent className="h-fit group-hover:-translate-y-2 transition duration-300 delay-50">
-                <h2 className="text-2xl font-bold my-2">{item.titre}</h2>
+                <h4 className="font-bold my-2 uppercase line-clamp-4">{item.titre}</h4>
                 <p className="text-muted-foreground my-2">
                   Publié le{" "}
                   {moment(item.datetime).format("dddd Do MMMM, [à] h:mm a")}
                 </p>
-                <p className="text-pretty text-justify ">{item.description}</p>
+                <p className="text-pretty text-justify line-clamp-6">{item.description}</p>
               </CardContent>
             </Card>
           </Link>

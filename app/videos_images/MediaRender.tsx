@@ -28,6 +28,7 @@ const MediaRender: React.FC<MediaPageProps> = ({ videos, images }) => {
     }
     else setSelectedMedia(images[0])
     return
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   const handleMediaSelect = (media: Media) => {
     setSelectedMedia(media);

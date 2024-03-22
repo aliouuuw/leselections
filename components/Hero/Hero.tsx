@@ -3,7 +3,7 @@ import LiveMarquee from "./LiveMarquee";
 
 export default async function Hero() {
   return (
-    <section className="max-h-screen flex flex-col items-center gap-4 py-4">
+    <section className="flex flex-col items-center gap-4 py-4">
       <h1>
         À LA <span className="text-primary">UNE</span>
       </h1>
