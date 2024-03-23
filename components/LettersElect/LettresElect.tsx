@@ -1,6 +1,7 @@
 "use client";
 
 import CardStack from "./CardStack";
+import LetterComponent from "./LetterComponent";
 
 type Letter = {
   author: string;
@@ -11,7 +12,7 @@ type Letter = {
 export default function LettresElect() {
   return (
     <div className="h-[40rem] flex items-center justify-center w-full">
-      <CardStack letters={letters} />
+      <LetterComponent letters={letters} />
     </div>
   );
 }

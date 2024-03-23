@@ -10,6 +10,7 @@ import Image from "next/image";
 import { PortableText } from "next-sanity";
 import { RichTextComponents } from "@/components/RichTextComponents";
 import Link from "next/link";
+import ShareButtons from "@/components/ShareButtons";
 
 interface Params {
   params: {
@@ -135,6 +136,7 @@ const page = async ({ params }: Params) => {
               value={article.contenu}
               components={RichTextComponents}
             />
+            <ShareButtons url={`leselections.info/filactu/actualites/${params?.slug}`}/>
           </div>
           <div className="py-8 w-full col-span-3 lg:col-span-1">
             <h3 className="mb-4">Autres articles</h3>

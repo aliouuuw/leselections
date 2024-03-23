@@ -53,10 +53,10 @@ export function MobileMenu() {
                 <Link href={"/candidats"}>
                   <DropdownMenuItem>Profils des Candidats</DropdownMenuItem>
                 </Link>
-                <Link href={"/"}>
+                <Link href={"/candidats/analyses"}>
                   <DropdownMenuItem>Analyse des Politques</DropdownMenuItem>
                 </Link>
-                <Link href={"/"}>
+                <Link href={"/candidats/debats"}>
                   <DropdownMenuItem>Débats et Opinions</DropdownMenuItem>
                 </Link>
               </DropdownMenuSubContent>
@@ -66,25 +66,23 @@ export function MobileMenu() {
             <DropdownMenuSubTrigger>{`Guide de l'Électeur`}</DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
-                <Link href={"/"}>
+                <Link href={"/guide/infos"}>
                   <DropdownMenuItem>Comment et Où voter?</DropdownMenuItem>
                 </Link>
-                <Link href={"/"}>
+                <Link href={"/guide/docs"}>
                   <DropdownMenuItem>Documents Nécessaires</DropdownMenuItem>
                 </Link>
-                <Link href={"/"}>
+                <Link href={"/guide/histoire"}>
                   <DropdownMenuItem>Histoire des Élections</DropdownMenuItem>
                 </Link>
-                <Link href={"/"}>
+                <Link href={"/guide/factcheck"}>
                   <DropdownMenuItem>Fact-checking</DropdownMenuItem>
                 </Link>
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
           </DropdownMenuSub>
           <DropdownMenuSub>
-            <Link href={"/"}>
               <DropdownMenuSubTrigger>Multimédia</DropdownMenuSubTrigger>
-            </Link>
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
                 <Link href={"/podcasts"}>
@@ -96,13 +94,13 @@ export function MobileMenu() {
               </DropdownMenuSubContent>
             </DropdownMenuPortal>
           </DropdownMenuSub>
-          <Link href={"/"}>
+          <Link href={"/lettres"}>
             <DropdownMenuItem>Lettres de Élécteurs</DropdownMenuItem>
           </Link>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
-          <Link href={"/"}>
+          <Link href={"/magazine"}>
             <DropdownMenuItem className="gap-2"><BookOpen className="h-4 w-4" /> Magazine</DropdownMenuItem>
           </Link>
 

@@ -13,10 +13,11 @@ export default function Home() {
       <Header />
       <main className="px-8 md:px-16">
         <Hero />
+        {/* <LettresElect /> */}
         <FilActu />
-        <EditorPicks />
         <Candidats />
         <Multimedia />
+        <EditorPicks />
       </main>
       <Footer />
     </>

@@ -79,7 +79,7 @@ export default async function page() {
                     )}
                   </div>
                   <div className="col-span-4 md:col-span-3">
-                    <h4 className="font-black text-2xl hover:underline hover:text-primary">
+                    <h4 className="font-black uppercase text-2xl hover:underline hover:text-primary">
                       {item.titre}
                     </h4>
                     <p className="text-muted-foreground my-2">

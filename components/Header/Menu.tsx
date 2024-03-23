@@ -36,8 +36,8 @@ export function Menu() {
           <NavigationMenuContent>
             <ul className="grid p-4 md:w-[300px] lg:w-[400px] lg:grid-cols-[.75fr_1fr]">
               <ListItem href="/candidats" title="Profils des Candidats"/>
-              <ListItem href="/" title="Analyse des Politiques"/>
-              <ListItem href="/" title="Débats et Opinions"/>
+              <ListItem href="/candidats/analyses" title="Analyse des Politiques"/>
+              <ListItem href="/candidats/debats" title="Débats et Opinions"/>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -45,10 +45,10 @@ export function Menu() {
           <NavigationMenuTrigger>{`Guide de l'Électeur`}</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid p-4 md:w-[300px] lg:w-[400px] lg:grid-cols-[.75fr_1fr]">
-              <ListItem href="/" title="Comment et Où Voter?"/>
-              <ListItem href="/" title="Documents Nécessaires"/>
-              <ListItem href="/" title="Histoire des Élections"/>
-              <ListItem href="/" title="Fact-checking"/>
+              <ListItem href="/guide/infos" title="Comment et Où Voter?"/>
+              <ListItem href="/guide/docs" title="Documents Nécessaires"/>
+              <ListItem href="/guide/histoire" title="Histoire des Élections"/>
+              <ListItem href="/guide/factcheck" title="Fact-checking"/>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -62,14 +62,14 @@ export function Menu() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
+          <Link href="/lettres" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               Lettres des Élécteurs
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
+          <Link href="/magazine" legacyBehavior passHref>
             <NavigationMenuLink className="group border gap-2 inline-flex h-8 xl:h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50">
              <BookOpen className="h-4 w-4" /> Magazine
             </NavigationMenuLink>

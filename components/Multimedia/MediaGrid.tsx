@@ -121,7 +121,7 @@ const Description = ({ description, url }: any) => {
       <p>{description}</p>
       <Link href={url}>
         <Button variant={"link"} size={"sm"}>
-          Voir plus
+          Voir tout
         </Button>
       </Link>
     </div>
