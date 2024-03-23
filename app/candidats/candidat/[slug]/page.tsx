@@ -7,6 +7,7 @@ import { sanityClient } from "@/sanity-client";
 import { notFound } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import { RichTextComponents } from "@/components/RichTextComponents";
+import ShareButtons from "@/components/ShareButtons";
 
 interface Params {
   params: {
@@ -88,6 +89,7 @@ const CandidatPage = async ({ params }: Params) => {
                       &nbsp;{" | "} &nbsp; {candidat.lieu_de_naissance}
                     </p>
                   </div>
+                  <ShareButtons url={`leselections.info/candidats/candidat/${params?.slug}`}/>
                 </div>
               </div>
             </div>
