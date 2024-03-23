@@ -40,7 +40,7 @@ const ShareButtons = ({ url }: { url: string }) => {
   }
   return (
     <div className="flex gap-2 items-center">
-      Partagez l'article:
+      Partagez l&apos;article:
       <TwitterShareButton url={url}>
         <TwitterIcon className="h-8 w-8 rounded-sm" />
       </TwitterShareButton>
