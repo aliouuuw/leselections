@@ -46,8 +46,9 @@ function Footer() {
       </div>
 
       <div className="w-full p-4 text-center font-extralight text-sm">
-        Les Elections, Inc. Depuis 2018. Tous droits réservés.
+        Les Elections, Inc. Depuis Mars 2024. Tous droits réservés.
       </div>
+      <p className="flex items-center justify-center w-full text-xs text-muted-foreground/50">@aliouuuw</p>
     </footer>
   );
 }
