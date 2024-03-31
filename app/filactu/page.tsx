@@ -8,6 +8,7 @@ import Header from "@/components/Header/Header";
 import moment from "moment";
 import "moment/locale/fr";
 import { Badge } from "@/components/ui/badge";
+import RatioNextImage from "@/components/RatioNextImage";
 
 moment.locale("fr");
 
@@ -55,38 +56,38 @@ export default async function page() {
         </div>
         <div className="grid lg:grid-cols-2 gap-4">
           {articles.map((item, index) => (
-           <Link
-           href={`/filactu/actualites/${item.slug.current}`}
-           target="_blank"
-           key={index}
-         >
-           <Card className="h-full group hover:border-primary [&_h4]:hover:text-primary [&_#img]:hover:scale-[1.05]">
-             <CardHeader>
-               {item.imageUrl && (
-                 <Image
-                   alt={item.imageUrl}
-                   id="img"
-                   className="rounded-lg w-full h-80 transform transition duration-300"
-                   height={300}
-                   width={600}
-                   src={item.imageUrl}
-                 />
-               )}
-             </CardHeader>
-             <CardContent className="h-fit group-hover:translate-x-2 transition duration-300 delay-150">
-               <h4 className="font-bold my-2 uppercase line-clamp-4">{item.titre}</h4>
-               <div className="flex flex-wrap gap-x-2 items-center">
-                <p className="text-primary">{item.type === "la_une" ? "À la une" : "Article"}</p>
-               <p className="text-muted-foreground my-2">
-                 Publié le{" "}
-                 {moment(item.datetime).format("dddd Do MMMM, [à] h:mm a")}
-               </p>
-
-               </div>
-               <p className="text-sm text-pretty line-clamp-6">{item.description}</p>
-             </CardContent>
-           </Card>
-         </Link>
+            <Link
+              href={`/filactu/actualites/${item.slug.current}`}
+              target="_blank"
+              key={index}
+            >
+              <Card className="h-full group hover:border-primary [&_h4]:hover:text-primary [&_#img]:hover:scale-[1.05]">
+                <CardHeader>
+                  {item.imageUrl && (
+                    <div className="rounded-lg w-full h-52 relative overflow-hidden">
+                    <RatioNextImage src={item.imageUrl} alt={item.titre}/>
+                 </div>
+                  )}
+                </CardHeader>
+                <CardContent className="h-fit group-hover:translate-x-2 transition duration-300 delay-150">
+                  <h4 className="font-bold my-2 uppercase line-clamp-4">
+                    {item.titre}
+                  </h4>
+                  <div className="flex flex-wrap gap-x-2 items-center">
+                    <p className="text-primary">
+                      {item.type === "la_une" ? "À la une" : "Article"}
+                    </p>
+                    <p className="text-muted-foreground my-2">
+                      Publié le{" "}
+                      {moment(item.datetime).format("dddd Do MMMM, [à] h:mm a")}
+                    </p>
+                  </div>
+                  <p className="text-sm text-pretty line-clamp-6">
+                    {item.description}
+                  </p>
+                </CardContent>
+              </Card>
+            </Link>
           ))}
         </div>
       </main>

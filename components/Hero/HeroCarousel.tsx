@@ -4,6 +4,7 @@ import { sanityClient } from "@/sanity-client";
 import Link from "next/link";
 import { Carousel } from "flowbite-react";
 import CarouselTheme from "../carousel-theme";
+import RatioNextImage from "../RatioNextImage";
 
 const getLaUne = async () => {
   try {
@@ -42,17 +43,15 @@ export async function HeroCarousel() {
           <div key={index} className="relative w-full h-full rounded-lg">
             <div className="absolute top-0 left-0 w-full h-1/2 md:h-full">
               {item.imageUrl && (
-                <Image
-                  src={item.imageUrl}
-                  alt="Image à la une"
-                  quality={100}
-                  fill
-                  className="w-full h-full rounded-top-lg object-center"
-                />
+                <div className="rounded-lg w-full h-full relative overflow-hidden">
+                <RatioNextImage src={item.imageUrl} alt={item.titre} />
+             </div>
               )}
             </div>
             <div className="absolute bottom-0 left-0 w-full max-sm:min-h-[50%] md:max-h-[50%] rounded-b-lg bg-background/80 backdrop-blur-md p-4 flex flex-col gap-2">
-              <h3 className="max-sm:text-base font-black uppercase line-clamp-3">{item.titre}</h3>
+              <h3 className="max-sm:text-base font-black uppercase line-clamp-3">
+                {item.titre}
+              </h3>
               <p className="max-sm:text-xs line-clamp-2">{item.description}</p>
               <Link
                 href={`/filactu/actualites/${item.slug.current}`}

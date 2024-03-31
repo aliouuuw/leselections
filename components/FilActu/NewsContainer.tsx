@@ -5,6 +5,7 @@ import moment from "moment";
 import "moment/locale/fr";
 import VoirPlus from "../VoirPlus";
 import { Card, CardContent, CardHeader } from "../ui/card";
+import RatioNextImage from "../RatioNextImage";
 
 moment.locale("fr");
 
@@ -52,23 +53,22 @@ export default async function NewsContainer() {
             <Card className="h-full group hover:border-primary [&_h4]:hover:text-primary [&_#img]:hover:scale-[1.02]">
               <CardHeader>
                 {item.imageUrl && (
-                  <Image
-                    alt={item.imageUrl}
-                    id="img"
-                    className="rounded-lg w-full h-80 transform transition duration-300"
-                    height={300}
-                    width={600}
-                    src={item.imageUrl}
-                  />
+                  <div className="rounded-lg w-full h-52 relative overflow-hidden">
+                     <RatioNextImage src={item.imageUrl} alt={item.titre}/>
+                  </div>
                 )}
               </CardHeader>
               <CardContent className="h-fit group-hover:translate-x-2 transition duration-300 delay-150">
-                <h4 className="font-bold my-2 uppercase line-clamp-4">{item.titre}</h4>
+                <h4 className="font-bold my-2 uppercase line-clamp-4">
+                  {item.titre}
+                </h4>
                 <p className="text-muted-foreground my-2">
                   Publié le{" "}
                   {moment(item.datetime).format("dddd Do MMMM, [à] h:mm a")}
                 </p>
-                <p className="text-sm text-pretty line-clamp-6">{item.description}</p>
+                <p className="text-sm text-pretty line-clamp-6">
+                  {item.description}
+                </p>
               </CardContent>
             </Card>
           </Link>

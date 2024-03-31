@@ -10,8 +10,9 @@ const questrial = Questrial({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://leselections.info'),
   title: "Les Éléctions Infos",
-  description: "Référence du journalisme éléctoral en Afrique",
+  description: "Le portail de l'information électorale en Afrique et dans le monde",
 };
 
 export default function RootLayout({

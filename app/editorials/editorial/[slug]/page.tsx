@@ -11,6 +11,7 @@ import { PortableText } from "next-sanity";
 import { RichTextComponents } from "@/components/RichTextComponents";
 import Link from "next/link";
 import ShareButtons from "@/components/ShareButtons";
+import { Metadata, ResolvingMetadata } from "next";
 
 interface Params {
   params: {
@@ -68,6 +69,26 @@ async function getArticles(slug: string) {
     return article;
   } catch (error) {
     console.error("Error fetching article info:", error);
+  }
+}
+
+export async function generateMetadata(
+  { params }: Params,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const slug = params.slug
+  // fetch data
+  const article = await getArticle(slug);
+ 
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || []
+ 
+  return {
+    title: article.titre,
+    openGraph: {
+      images: [`${article.imageUrl}`, ...previousImages],
+    },
   }
 }
 

@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import { RichTextComponents } from "@/components/RichTextComponents";
 import ShareButtons from "@/components/ShareButtons";
+import { Metadata, ResolvingMetadata } from "next";
 
 interface Params {
   params: {
@@ -47,6 +48,26 @@ async function getCandidat(slug: string) {
     return candidat;
   } catch (error) {
     console.error("Error fetching candidat info:", error);
+  }
+}
+
+export async function generateMetadata(
+  { params }: Params,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+  const slug = params.slug
+  // fetch data
+  const candidat = await getCandidat(slug);
+ 
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || []
+ 
+  return {
+    title: candidat.nom,
+    openGraph: {
+      images: [`${candidat.photoUrl}`, ...previousImages],
+    },
   }
 }
 

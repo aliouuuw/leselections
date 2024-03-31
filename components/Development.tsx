@@ -18,7 +18,7 @@ export default function Development() {
           Bientôt disponible
         </h1>
         <p className="text-muted-foreground md:text-xl/relaxed">
-          Nous travaillons continuelle sur notre site web et ajouterons cette page bientôt.
+          Nous travaillons continuellement sur notre site web et ajouterons cette page bientôt.
         </p>
       </div>
     </div>

@@ -1,6 +1,7 @@
 import { sanityClient } from "@/sanity-client";
 import moment from "moment";
 import "moment/locale/fr"
+import Marquee from "./Marquee";
 
 type UpdateProps = {
   titre: string;
@@ -22,6 +23,7 @@ const getLives = async () => {
 };
 export default async function LiveMarquee () {
   const updates: UpdateProps[] = await getLives();
+  const titles = updates.map((update)=> update.titre)
 
   return (
     <div className="w-full rounded-lg bg-muted/40">
@@ -37,16 +39,7 @@ export default async function LiveMarquee () {
                   {moment(updates[0].datetime).startOf("hour").fromNow()}
                 </time>
               </div>
-              <div className="text-sm w-fit font-medium leading-none overflow-hidden whitespace-nowrap marquee flex justify-between">
-                {updates.map((update, index) => (
-                  <div key={index} className="flex ">
-                    {/* add more space */}
-                    <p>{" - "}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    <p>{update.titre}</p>
-                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                  </div>
-                ))}
-              </div>
+                <Marquee items={titles} />
             </div>
           </div>
         </div>
