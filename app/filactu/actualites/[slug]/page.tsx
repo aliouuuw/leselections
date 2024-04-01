@@ -12,6 +12,7 @@ import { RichTextComponents } from "@/components/RichTextComponents";
 import Link from "next/link";
 import ShareButtons from "@/components/ShareButtons";
 import { Metadata, ResolvingMetadata } from "next";
+import RatioNextImage from "@/components/RatioNextImage";
 
 interface Params {
   params: {
@@ -138,14 +139,16 @@ const page = async ({ params }: Params) => {
               </div>
               <div className="col-span-2 lg:col-span-1 lg:ml-auto m-auto max-md:scale-90">
                 {article.imageUrl && (
-                  <Image
-                    alt="Hero image"
-                    className="h-full w-full overflow-hidden object-fill"
-                    height={200}
-                    src={article.imageUrl}
-                    quality={100}
-                    width={200}
-                  />
+                  <div className="w-full max-md:mt-4 h-52 relative overflow-hidden">
+                    <Image
+                      alt="Article image"
+                      className="h-full w-full overflow-hidden object-fill"
+                      height={200}
+                      src={article.imageUrl}
+                      quality={100}
+                      width={200}
+                    />
+                  </div>
                 )}
               </div>
             </div>
